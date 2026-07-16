@@ -1,0 +1,17 @@
+// Dans src/pages/Home.tsx
+// 1) Ajoute cet import avec les autres composants :
+import PVSimulator from '../components/PVSimulator'
+
+// 2) Ajoute le composant dans le retour, par exemple après <Performance /> :
+return (
+  <>
+    <Hero />
+    <About />
+    <Skills />
+    <Experience />
+    <Performance />
+    <PVSimulator />
+    <Gallery />
+    <Contact />
+  </>
+)

@@ -1,0 +1,35 @@
+/* ─────────────────────────────────────────────────────────────
+   NOUVEAU — SkillsRadar.tsx — à coller en fin de components.css.
+   Classes toutes nouvelles, préfixe skills-radar- : rien ici ne
+   redéfinit une règle existante.
+───────────────────────────────────────────────────────────── */
+.skills-radar-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills-radar-title {
+  display: block;
+  align-self: flex-start;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+
+.skills-radar-svg {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+}
+
+@media (max-width: 480px) {
+  .skills-radar-svg {
+    max-width: 300px;
+  }
+}

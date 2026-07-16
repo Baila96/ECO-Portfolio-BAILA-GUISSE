@@ -1,0 +1,31 @@
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.cv-download-btn:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.cv-download-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(20, 16, 10, 0.16);
+  color: #14100a;
+  font-size: 0.85rem;
+  line-height: 1;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.cv-download-btn:hover .cv-download-icon {
+  transform: translateY(2px);
+  background: rgba(20, 16, 10, 0.24);
+}
