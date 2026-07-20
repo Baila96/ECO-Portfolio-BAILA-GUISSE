@@ -1,33 +1,60 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { useLanguage } from '../i18n/LanguageContext'
 import './pv-simulator.css'
+
+type Lang = 'fr' | 'en'
 
 type Region = {
   key: string
-  label: string
+  labelFr: string
+  labelEn: string
   yieldPerKwc: number
 }
 
 type Quality = {
   key: string
-  label: string
-  hint: string
+  labelFr: string
+  labelEn: string
+  hintFr: string
+  hintEn: string
   factor: number
 }
 
 const REGIONS: Region[] = [
-  { key: 'nord', label: 'Nord / Hauts-de-France', yieldPerKwc: 1050 },
-  { key: 'idf', label: 'Île-de-France', yieldPerKwc: 1100 },
-  { key: 'est', label: 'Grand Est', yieldPerKwc: 1080 },
-  { key: 'centre-rhone', label: 'Centre / Rhône-Alpes', yieldPerKwc: 1200 },
-  { key: 'sud-ouest', label: 'Sud-Ouest', yieldPerKwc: 1300 },
-  { key: 'vaucluse-paca', label: 'Vaucluse / PACA', yieldPerKwc: 1420 },
+  { key: 'nord', labelFr: 'Nord / Hauts-de-France', labelEn: 'North / Hauts-de-France', yieldPerKwc: 1050 },
+  { key: 'idf', labelFr: 'Île-de-France', labelEn: 'Paris region', yieldPerKwc: 1100 },
+  { key: 'est', labelFr: 'Grand Est', labelEn: 'Eastern France', yieldPerKwc: 1080 },
+  { key: 'centre-rhone', labelFr: 'Centre / Rhône-Alpes', labelEn: 'Central France / Rhône-Alpes', yieldPerKwc: 1200 },
+  { key: 'sud-ouest', labelFr: 'Sud-Ouest', labelEn: 'South-West France', yieldPerKwc: 1300 },
+  { key: 'vaucluse-paca', labelFr: 'Vaucluse / PACA', labelEn: 'Vaucluse / Provence-Alpes-Côte d’Azur', yieldPerKwc: 1420 },
 ]
 
 const QUALITY: Quality[] = [
-  { key: 'optimale', label: 'Optimale', hint: 'Sud, inclinaison proche de 30°', factor: 1 },
-  { key: 'correcte', label: 'Correcte', hint: 'Est/Ouest ou inclinaison variable', factor: 0.9 },
-  { key: 'sous-optimale', label: 'Sous-optimale', hint: 'Ombrages partiels ou orientation défavorable', factor: 0.72 },
+  {
+    key: 'optimale',
+    labelFr: 'Optimale',
+    labelEn: 'Optimal',
+    hintFr: 'Sud, inclinaison proche de 30°',
+    hintEn: 'South-facing, close to 30° tilt',
+    factor: 1,
+  },
+  {
+    key: 'correcte',
+    labelFr: 'Correcte',
+    labelEn: 'Good',
+    hintFr: 'Est/Ouest ou inclinaison variable',
+    hintEn: 'East/West or variable tilt',
+    factor: 0.9,
+  },
+  {
+    key: 'sous-optimale',
+    labelFr: 'Sous-optimale',
+    labelEn: 'Sub-optimal',
+    hintFr: 'Ombrages partiels ou orientation défavorable',
+    hintEn: 'Partial shading or unfavourable orientation',
+    factor: 0.72,
+  },
 ]
 
 // Répartition mensuelle normalisée : la somme fait exactement 1.
@@ -36,21 +63,95 @@ const RAW_MONTHLY_SHARE = [0.048, 0.058, 0.082, 0.096, 0.108, 0.112, 0.118, 0.10
 const MONTHLY_TOTAL = RAW_MONTHLY_SHARE.reduce((sum, value) => sum + value, 0)
 const MONTHLY_SHARE = RAW_MONTHLY_SHARE.map((value) => value / MONTHLY_TOTAL)
 
-const MONTHS = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D']
-const MONTHS_FULL = [
-  'Janvier',
-  'Février',
-  'Mars',
-  'Avril',
-  'Mai',
-  'Juin',
-  'Juillet',
-  'Août',
-  'Septembre',
-  'Octobre',
-  'Novembre',
-  'Décembre',
-]
+const MONTHS_SHORT: Record<Lang, string[]> = {
+  fr: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+  en: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+}
+
+const MONTHS_FULL: Record<Lang, string[]> = {
+  fr: [
+    'Janvier',
+    'Février',
+    'Mars',
+    'Avril',
+    'Mai',
+    'Juin',
+    'Juillet',
+    'Août',
+    'Septembre',
+    'Octobre',
+    'Novembre',
+    'Décembre',
+  ],
+  en: [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ],
+}
+
+const TEXT = {
+  fr: {
+    eyebrow: 'Bonus technique',
+    titlePrefix: 'Simulateur de',
+    titleAccent: 'production PV',
+    intro:
+      "Estimation rapide à partir de la puissance installée, du rendement spécifique régional et de la qualité d'implantation.",
+    formula: 'Production = kWc × kWh/kWc/an × facteur',
+    powerLabel: 'Choisissez la puissance à installer',
+    powerAria: 'Choisir la puissance photovoltaïque à installer en kWc',
+    regionLabel: 'Choisissez votre région',
+    regionAria: "Choisir votre région d'installation",
+    qualityLabel: "Qualité d'installation",
+    resultLabel: 'Production annuelle estimée',
+    annualUnit: 'kWh/an',
+    specificYieldUnit: 'kWh/kWc/an',
+    powerUnit: 'kWc',
+    locale: 'fr-FR',
+    disclaimer:
+      "Estimation pédagogique simplifiée. La répartition mensuelle est normalisée pour totaliser exactement la production annuelle affichée. Une vraie étude tient compte de l'orientation exacte, de l'inclinaison, des ombrages, des pertes électriques, du matériel retenu et des données météo locales.",
+  },
+  en: {
+    eyebrow: 'Technical bonus',
+    titlePrefix: 'PV production',
+    titleAccent: 'simulator',
+    intro: 'Quick estimate based on installed capacity, regional specific yield and installation quality.',
+    formula: 'Production = kWp × kWh/kWp/year × factor',
+    powerLabel: 'Choose the installed capacity',
+    powerAria: 'Choose the photovoltaic capacity to install in kWp',
+    regionLabel: 'Choose your region',
+    regionAria: 'Choose the installation region',
+    qualityLabel: 'Installation quality',
+    resultLabel: 'Estimated annual production',
+    annualUnit: 'kWh/year',
+    specificYieldUnit: 'kWh/kWp/year',
+    powerUnit: 'kWp',
+    locale: 'en-US',
+    disclaimer:
+      'Simplified educational estimate. The monthly distribution is normalised to exactly match the annual production shown. A real study considers the exact orientation, tilt, shading, electrical losses, selected equipment and local weather data.',
+  },
+} as const
+
+function getRegionLabel(region: Region, lang: Lang) {
+  return lang === 'fr' ? region.labelFr : region.labelEn
+}
+
+function getQualityLabel(quality: Quality, lang: Lang) {
+  return lang === 'fr' ? quality.labelFr : quality.labelEn
+}
+
+function getQualityHint(quality: Quality, lang: Lang) {
+  return lang === 'fr' ? quality.hintFr : quality.hintEn
+}
 
 function useAnimatedNumber(target: number, duration = 300) {
   const [display, setDisplay] = useState(target)
@@ -94,7 +195,7 @@ function distributeAnnualKwh(annualKwh: number) {
   return roundedValues
 }
 
-function MiniMonthlyChart({ annualKwh }: { annualKwh: number }) {
+function MiniMonthlyChart({ annualKwh, lang }: { annualKwh: number; lang: Lang }) {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null)
   const values = useMemo(() => distributeAnnualKwh(annualKwh), [annualKwh])
   const max = Math.max(...values, 1)
@@ -103,6 +204,9 @@ function MiniMonthlyChart({ annualKwh }: { annualKwh: number }) {
   const height = 112
   const gap = 7
   const barWidth = (width - gap * (values.length - 1)) / values.length
+  const monthsShort = MONTHS_SHORT[lang]
+  const monthsFull = MONTHS_FULL[lang]
+  const locale = TEXT[lang].locale
 
   const bars = values.map((value, index) => {
     const barHeight = (value / max) * (height - 8)
@@ -120,7 +224,7 @@ function MiniMonthlyChart({ annualKwh }: { annualKwh: number }) {
     <div className="chart-wrap pv-sim-chart-wrap">
       <svg viewBox={`0 0 ${width} ${height + 22}`} className="pv-sim-chart" xmlns="http://www.w3.org/2000/svg">
         {bars.map((bar, index) => (
-          <g key={MONTHS[index]}>
+          <g key={monthsShort[index]}>
             <motion.rect
               x={bar.x}
               width={barWidth}
@@ -131,7 +235,6 @@ function MiniMonthlyChart({ annualKwh }: { annualKwh: number }) {
               transition={{ duration: 0.3, ease: 'easeOut' }}
             />
 
-            {/* Zone de survol plus large, comme dans la section Performance */}
             <rect
               x={bar.x}
               y="0"
@@ -150,7 +253,7 @@ function MiniMonthlyChart({ annualKwh }: { annualKwh: number }) {
               fontFamily="JetBrains Mono, monospace"
               fill="var(--text-dim)"
             >
-              {MONTHS[index]}
+              {monthsShort[index]}
             </text>
           </g>
         ))}
@@ -163,7 +266,7 @@ function MiniMonthlyChart({ annualKwh }: { annualKwh: number }) {
         </defs>
       </svg>
 
-      {hovered && (
+      {hovered && hoverIndex !== null && (
         <div
           className="chart-tooltip"
           style={{
@@ -171,8 +274,8 @@ function MiniMonthlyChart({ annualKwh }: { annualKwh: number }) {
             top: `${(hovered.y / (height + 22)) * 100}%`,
           }}
         >
-          <strong>{MONTHS_FULL[hoverIndex as number]}</strong>
-          <span>{hovered.value.toLocaleString('fr-FR')} kWh</span>
+          <strong>{monthsFull[hoverIndex]}</strong>
+          <span>{hovered.value.toLocaleString(locale)} kWh</span>
         </div>
       )}
     </div>
@@ -180,6 +283,9 @@ function MiniMonthlyChart({ annualKwh }: { annualKwh: number }) {
 }
 
 export default function PVSimulator() {
+  const { lang } = useLanguage()
+  const t = TEXT[lang]
+
   const [kwc, setKwc] = useState(9)
   const [regionKey, setRegionKey] = useState('vaucluse-paca')
   const [qualityKey, setQualityKey] = useState('optimale')
@@ -225,27 +331,24 @@ export default function PVSimulator() {
         >
           <div className="pv-sim-head">
             <div>
-              <span className="eyebrow">Bonus technique</span>
+              <span className="eyebrow">{t.eyebrow}</span>
               <h2 className="section-title">
-                Simulateur de <span className="accent">production PV</span>
+                {t.titlePrefix} <span className="accent">{t.titleAccent}</span>
               </h2>
-              <p className="pv-sim-intro">
-                Estimation rapide à partir de la puissance installée, du rendement spécifique régional et de la qualité
-                d'implantation.
-              </p>
+              <p className="pv-sim-intro">{t.intro}</p>
             </div>
 
-            <div className="pv-sim-formula mono">
-              Production = kWc × kWh/kWc/an × facteur
-            </div>
+            <div className="pv-sim-formula mono">{t.formula}</div>
           </div>
 
           <div className="pv-sim-grid">
             <div className="pv-sim-controls">
               <label className="pv-sim-control">
                 <span className="pv-sim-control-top">
-                  <span>Choisissez la puissance à installer</span>
-                  <strong className="mono">{kwc} kWc</strong>
+                  <span>{t.powerLabel}</span>
+                  <strong className="mono">
+                    {kwc} {t.powerUnit}
+                  </strong>
                 </span>
                 <input
                   className="pv-sim-slider"
@@ -255,12 +358,12 @@ export default function PVSimulator() {
                   step={1}
                   value={kwc}
                   onChange={(event) => setKwc(Number(event.target.value))}
-                  aria-label="Choisir la puissance photovoltaïque à installer en kWc"
+                  aria-label={t.powerAria}
                 />
               </label>
 
               <div className="pv-sim-control" ref={regionDropdownRef}>
-                <span className="pv-sim-label">Choisissez votre région</span>
+                <span className="pv-sim-label">{t.regionLabel}</span>
 
                 <button
                   type="button"
@@ -268,10 +371,10 @@ export default function PVSimulator() {
                   onClick={() => setRegionOpen((open) => !open)}
                   aria-haspopup="listbox"
                   aria-expanded={regionOpen}
-                  aria-label="Choisir votre région d'installation"
+                  aria-label={t.regionAria}
                 >
                   <span>
-                    {region.label} — {region.yieldPerKwc} kWh/kWc/an
+                    {getRegionLabel(region, lang)} — {region.yieldPerKwc} {t.specificYieldUnit}
                   </span>
                   <motion.span
                     className="pv-sim-region-chevron"
@@ -305,8 +408,10 @@ export default function PVSimulator() {
                             setRegionOpen(false)
                           }}
                         >
-                          <span>{item.label}</span>
-                          <small>{item.yieldPerKwc} kWh/kWc/an</small>
+                          <span>{getRegionLabel(item, lang)}</span>
+                          <small>
+                            {item.yieldPerKwc} {t.specificYieldUnit}
+                          </small>
                         </button>
                       ))}
                     </motion.div>
@@ -315,7 +420,7 @@ export default function PVSimulator() {
               </div>
 
               <div className="pv-sim-control">
-                <span className="pv-sim-label">Qualité d'installation</span>
+                <span className="pv-sim-label">{t.qualityLabel}</span>
                 <div className="pv-sim-quality-list">
                   {QUALITY.map((item) => (
                     <button
@@ -324,8 +429,8 @@ export default function PVSimulator() {
                       className={`pv-sim-quality ${qualityKey === item.key ? 'is-active' : ''}`}
                       onClick={() => setQualityKey(item.key)}
                     >
-                      <span>{item.label}</span>
-                      <small>{item.hint}</small>
+                      <span>{getQualityLabel(item, lang)}</span>
+                      <small>{getQualityHint(item, lang)}</small>
                     </button>
                   ))}
                 </div>
@@ -333,7 +438,7 @@ export default function PVSimulator() {
             </div>
 
             <div className="pv-sim-result-card">
-              <span className="mono pv-sim-result-label">Production annuelle estimée</span>
+              <span className="mono pv-sim-result-label">{t.resultLabel}</span>
 
               <div className="pv-sim-result-value">
                 <motion.span
@@ -343,26 +448,26 @@ export default function PVSimulator() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.22, ease: 'easeOut' }}
                 >
-                  {Math.round(displayedKwh).toLocaleString('fr-FR')}
+                  {Math.round(displayedKwh).toLocaleString(t.locale)}
                 </motion.span>
-                <small>kWh/an</small>
+                <small>{t.annualUnit}</small>
               </div>
 
               <div className="pv-sim-breakdown">
-                <span>{kwc} kWc</span>
+                <span>
+                  {kwc} {t.powerUnit}
+                </span>
                 <span>×</span>
-                <span>{region.yieldPerKwc} kWh/kWc/an</span>
+                <span>
+                  {region.yieldPerKwc} {t.specificYieldUnit}
+                </span>
                 <span>×</span>
                 <span>{quality.factor}</span>
               </div>
 
-              <MiniMonthlyChart annualKwh={annualKwh} />
+              <MiniMonthlyChart annualKwh={annualKwh} lang={lang} />
 
-              <p className="pv-sim-disclaimer">
-                Estimation pédagogique simplifiée. La répartition mensuelle est normalisée pour totaliser exactement
-                la production annuelle affichée. Une vraie étude tient compte de l'orientation exacte, de
-                l'inclinaison, des ombrages, des pertes électriques, du matériel retenu et des données météo locales.
-              </p>
+              <p className="pv-sim-disclaimer">{t.disclaimer}</p>
             </div>
           </div>
         </motion.div>

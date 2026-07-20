@@ -22,46 +22,140 @@
   margin-bottom: 18px;
 }
 
-.project-compare-select {
+.project-compare-select,
+.project-compare-region-dropdown {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 10px;
 }
 
-.project-compare-select span {
-  color: var(--text-muted);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
+.project-compare-region-label {
+  color: var(--text);
+  font-size: 0.9rem;
 }
 
-.project-compare-select select {
+/* Même esprit que .pv-sim-select + .pv-sim-region-trigger */
+.project-compare-region-trigger {
   width: 100%;
   min-height: 48px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background:
-    radial-gradient(circle at 90% 20%, rgba(255, 165, 61, 0.09), transparent 34%),
-    rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
   color: var(--text);
-  padding: 0 18px;
-  font: inherit;
-  outline: none;
+  padding: 12px 14px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  text-align: left;
   transition:
     border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.project-compare-select select:focus {
+.project-compare-region-trigger > span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-compare-region-trigger:hover {
+  background: rgba(60, 255, 176, 0.06);
   border-color: var(--green);
-  box-shadow: 0 0 0 4px rgba(60, 255, 176, 0.08);
+  box-shadow: 0 0 0 1px rgba(60, 255, 176, 0.08);
 }
 
-.project-compare-select option {
-  background: #06110f;
-  color: #e7f3ef;
+.project-compare-region-trigger:focus {
+  outline: none;
+  border-color: var(--green);
+  background: rgba(60, 255, 176, 0.08);
+  box-shadow: 0 0 0 1px rgba(60, 255, 176, 0.12);
 }
+
+.project-compare-region-trigger.is-open {
+  border-color: var(--green);
+  background:
+    radial-gradient(circle at 90% 20%, rgba(255, 165, 61, 0.09), transparent 34%),
+    rgba(60, 255, 176, 0.08);
+  box-shadow:
+    0 0 0 1px rgba(60, 255, 176, 0.12),
+    0 14px 36px -24px rgba(60, 255, 176, 0.55);
+}
+
+.project-compare-region-chevron {
+  color: var(--green);
+  font-size: 0.9rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Même rendu que le menu ouvert du simulateur PV */
+.project-compare-region-menu {
+  position: absolute;
+  z-index: 60;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  padding: 7px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 85% 0%, rgba(255, 165, 61, 0.12), transparent 34%),
+    radial-gradient(circle at 10% 100%, rgba(60, 255, 176, 0.1), transparent 42%),
+    rgba(6, 17, 15, 0.96);
+  box-shadow:
+    0 24px 60px -30px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(60, 255, 176, 0.06);
+  backdrop-filter: blur(14px);
+}
+
+.project-compare-region-option {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 11px 12px;
+  border: 0;
+  border-radius: calc(var(--radius) - 5px);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    color 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.project-compare-region-option:hover {
+  color: var(--text);
+  background: rgba(60, 255, 176, 0.07);
+  transform: translateX(2px);
+}
+
+.project-compare-region-option.is-active {
+  color: #14100a;
+  background: var(--grad-solar);
+  font-weight: 600;
+}
+
+.project-compare-region-option small {
+  color: inherit;
+  opacity: 0.72;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
+
 
 .project-compare-vs {
   display: grid;
@@ -284,6 +378,21 @@
 }
 
 @media (max-width: 560px) {
+  .project-compare-region-menu {
+    max-height: 320px;
+    overflow-y: auto;
+  }
+
+  .project-compare-region-option {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .project-compare-region-option small {
+    white-space: normal;
+  }
+
+
   .project-compare-stats {
     grid-template-columns: 1fr;
   }

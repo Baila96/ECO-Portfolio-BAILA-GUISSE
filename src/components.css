@@ -1501,9 +1501,6 @@ body.lightbox-open {
   display: block;
 }
 
-.gallery-lightbox-video {
-  background: #000;
-}
 
 /* Timeline Expériences — rail plus compact en mobile */
 @media (max-width: 600px) {
@@ -1781,3 +1778,229 @@ body.lightbox-open {
     animation: none;
   }
 }
+
+
+/* ─────────────────────────────────────────────────────────────
+   PROJECT DETAIL — GALERIE CARROUSEL + LIGHTBOX STABLE
+──────────────────────────────────────────────────────────── */
+.photo-carousel-card {
+  position: relative;
+}
+
+.photo-carousel-button {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.photo-carousel-button img,
+.photo-carousel-button video {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-carousel-counter {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2;
+  padding: 5px 9px;
+  border-radius: 999px;
+  color: var(--text);
+  background: rgba(6, 11, 10, 0.78);
+  border: 1px solid var(--line);
+  font-size: 0.68rem;
+}
+
+body.lightbox-open {
+  overflow: hidden;
+}
+
+/* Lightbox rendue via React Portal dans document.body.
+   Le z-index volontairement très haut évite les conflits avec :
+   - navbar fixe
+   - fond dynamique au scroll
+   - spotlight curseur
+   - overlays et animations Framer Motion
+*/
+.gallery-lightbox {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483000 !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  padding: 72px 72px 42px !important;
+  isolation: isolate;
+  pointer-events: auto;
+  overflow: hidden;
+}
+
+.gallery-lightbox-backdrop {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  border: 0;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(60, 255, 176, 0.08), transparent 34%),
+    rgba(0, 0, 0, 0.94);
+  backdrop-filter: blur(12px);
+  cursor: zoom-out;
+}
+
+.gallery-lightbox-content {
+  position: relative !important;
+  z-index: 3 !important;
+  width: min(1180px, calc(100vw - 144px));
+  max-width: 100%;
+  height: calc(100vh - 126px);
+  max-height: calc(100vh - 126px);
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-items: center;
+  justify-items: center;
+  gap: 14px;
+  pointer-events: none;
+}
+
+.gallery-lightbox-image,
+.gallery-lightbox-video {
+  position: relative !important;
+  z-index: 4 !important;
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: calc(100vh - 182px) !important;
+  object-fit: contain !important;
+  opacity: 1;
+  visibility: visible;
+  border-radius: var(--radius);
+  box-shadow:
+    0 24px 90px rgba(0, 0, 0, 0.62),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+  pointer-events: auto;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.gallery-lightbox-video {
+  background: #000;
+}
+
+.gallery-lightbox-caption {
+  position: relative;
+  z-index: 5;
+  width: min(1180px, 100%);
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.74rem;
+  pointer-events: none;
+}
+
+.gallery-lightbox-close {
+  position: fixed !important;
+  top: 22px;
+  right: 24px;
+  z-index: 7 !important;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(0, 0, 0, 0.86);
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.gallery-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.gallery-lightbox-arrow {
+  position: fixed !important;
+  top: 50%;
+  z-index: 6 !important;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  font-size: 2.4rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.gallery-lightbox-arrow:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.gallery-lightbox-arrow-left {
+  left: 24px;
+}
+
+.gallery-lightbox-arrow-right {
+  right: 24px;
+}
+
+@media (max-width: 700px) {
+  .gallery-lightbox {
+    padding: 72px 18px 32px !important;
+  }
+
+  .gallery-lightbox-content {
+    width: calc(100vw - 36px);
+    height: calc(100vh - 116px);
+    max-height: calc(100vh - 116px);
+  }
+
+  .gallery-lightbox-image,
+  .gallery-lightbox-video {
+    max-height: calc(100vh - 170px) !important;
+  }
+
+  .gallery-lightbox-arrow {
+    width: 44px;
+    height: 44px;
+    font-size: 2rem;
+  }
+
+  .gallery-lightbox-arrow-left {
+    left: 12px;
+  }
+
+  .gallery-lightbox-arrow-right {
+    right: 12px;
+  }
+
+  .gallery-lightbox-close {
+    top: 14px;
+    right: 14px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .gallery-lightbox-caption {
+    font-size: 0.68rem;
+  }
+}
+

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { Link, useParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { getPortfolioData, ProjectImage, ProjectStat } from '../data/profile'
@@ -189,9 +190,9 @@ function GalleryLightbox({
     }
   }, [index, validPhotos.length, onClose])
 
-  if (!photo) return null
+  if (!photo || typeof document === 'undefined') return null
 
-  return (
+  return createPortal(
     <motion.div className="gallery-lightbox" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.16 }}>
       <button className="gallery-lightbox-backdrop" type="button" onClick={onClose} aria-label="Fermer la galerie" />
 
@@ -216,15 +217,11 @@ function GalleryLightbox({
             <motion.video
               key={photo.src}
               src={photo.src}
-              className="gallery-lightbox-image gallery-lightbox-video gallery-muted-video"
+              className="gallery-lightbox-image gallery-lightbox-video"
               autoPlay
-              muted
-              defaultMuted
               playsInline
-              controls={false}
-              onLoadedMetadata={(event) => forceVideoMuted(event.currentTarget)}
-              onPlay={(event) => forceVideoMuted(event.currentTarget)}
-              onVolumeChange={(event) => forceVideoMuted(event.currentTarget)}
+              controls
+              preload="metadata"
               initial={{ opacity: 0, scale: 0.985 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.985 }}
@@ -252,7 +249,8 @@ function GalleryLightbox({
           </span>
         </div>
       </div>
-    </motion.div>
+    </motion.div>,
+    document.body,
   )
 }
 

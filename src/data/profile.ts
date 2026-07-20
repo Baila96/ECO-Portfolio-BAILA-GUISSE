@@ -320,7 +320,14 @@ export const galleryItems: GalleryItem[] = [
           caption: "Toiture et obstacles présents",
         },
       ],
-      after: [],
+      after: [
+        { src: "/src/assets/gallery/belmont1.jpg", caption: "Après installation — Belmont 1" },
+        { src: "/src/assets/gallery/belmont2.jpg", caption: "Après installation — Belmont 2" },
+        { src: "/src/assets/gallery/belmont3.jpg", caption: "Après installation — Belmont 3" },
+        { src: "/src/assets/gallery/belmont4.jpg", caption: "Après installation — Belmont 4" },
+        { src: "/src/assets/gallery/belmont5.jpg", caption: "Après installation — Belmont 5" },
+        { src: "/src/assets/gallery/VideoBelmont.mp4", caption: "VideoBelmont", mediaType: "video" },
+      ],
     },
   },
   {
@@ -1136,7 +1143,14 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
         { src: "/src/assets/gallery/vt-2.jpg", caption: "Roof and existing obstacles" },
         { src: "/src/assets/gallery/vt-3.jpg", caption: "Roof and existing obstacles" },
       ],
-      after: [],
+      after: [
+        { src: "/src/assets/gallery/belmont1.jpg", caption: "After installation — Belmont 1" },
+        { src: "/src/assets/gallery/belmont2.jpg", caption: "After installation — Belmont 2" },
+        { src: "/src/assets/gallery/belmont3.jpg", caption: "After installation — Belmont 3" },
+        { src: "/src/assets/gallery/belmont4.jpg", caption: "After installation — Belmont 4" },
+        { src: "/src/assets/gallery/belmont5.jpg", caption: "After installation — Belmont 5" },
+        { src: "/src/assets/gallery/VideoBelmont.mp4", caption: "VideoBelmont", mediaType: "video" },
+      ],
     },
   },
 

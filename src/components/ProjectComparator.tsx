@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { getPortfolioData } from '../data/profile'
 import type { GalleryItem } from '../data/profile'
 import { useLanguage } from '../i18n/LanguageContext'
@@ -124,17 +124,85 @@ function ProjectSelect({
   options: GalleryItem[]
   onChange: (value: string) => void
 }) {
+  const [open, setOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+  const selectedProject = options.find((project) => project.slug === value)
+
+  useEffect(() => {
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!dropdownRef.current) return
+
+      if (!dropdownRef.current.contains(event.target as Node)) {
+        setOpen(false)
+      }
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false)
+    }
+
+    document.addEventListener('pointerdown', handlePointerDown)
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown)
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
+
   return (
-    <label className="project-compare-select">
-      <span className="mono">{label}</span>
-      <select value={value} onChange={(event) => onChange(event.target.value)}>
-        {options.map((project) => (
-          <option key={project.slug} value={project.slug}>
-            {project.title}
-          </option>
-        ))}
-      </select>
-    </label>
+    <div className="project-compare-select project-compare-region-dropdown" ref={dropdownRef}>
+      <span className="project-compare-region-label">{label}</span>
+
+      <button
+        type="button"
+        className={`project-compare-region-trigger ${open ? 'is-open' : ''}`}
+        onClick={() => setOpen((current) => !current)}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+      >
+        <span>{selectedProject?.title ?? options[0]?.title ?? '—'}</span>
+
+        <motion.span
+          className="project-compare-region-chevron"
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.22, ease: 'easeOut' }}
+          aria-hidden="true"
+        >
+          ▾
+        </motion.span>
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="project-compare-region-menu"
+            role="listbox"
+            initial={{ opacity: 0, y: -8, scale: 0.98, filter: 'blur(4px)' }}
+            animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, y: -8, scale: 0.98, filter: 'blur(4px)' }}
+            transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {options.map((project) => (
+              <button
+                key={project.slug}
+                type="button"
+                role="option"
+                aria-selected={project.slug === value}
+                className={`project-compare-region-option ${project.slug === value ? 'is-active' : ''}`}
+                onClick={() => {
+                  onChange(project.slug)
+                  setOpen(false)
+                }}
+              >
+                <span>{project.title}</span>
+                <small>{project.meta}</small>
+              </button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   )
 }
 
