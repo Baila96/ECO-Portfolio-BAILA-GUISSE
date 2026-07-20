@@ -72,7 +72,7 @@ export default function Nav() {
         <div className="nav-inner container">
           <button className="nav-brand" onClick={() => goTo('accueil')}>
             <span className="nav-avatar-ring">
-              <span className="nav-avatar nav-avatar-fallback" aria-label={identity.name}>BG</span>
+              <img src="/gallery/photo.jpg" alt={identity.name} className="nav-avatar" />
             </span>
             <span className="mono">B.GUISSE</span>
           </button>
