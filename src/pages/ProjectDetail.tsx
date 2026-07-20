@@ -121,7 +121,6 @@ function PhotoCarouselCard({
               src={current.src}
               className="gallery-muted-video"
               muted
-              defaultMuted
               playsInline
               preload="metadata"
               controls={false}

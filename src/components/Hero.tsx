@@ -293,7 +293,7 @@ export default function Hero() {
 
               return (
                 <div key={k.label} className="kpi">
-                  <Counter value={k.value} suffix={translated.suffix} decimals={k.decimals ?? 0} />
+                  <Counter value={k.value} suffix={translated.suffix ?? k.suffix ?? ''} decimals={k.decimals ?? 0} />
                   <span className="kpi-label">{translated.label}</span>
                   <span className="kpi-hint">{translated.hint}</span>
                 </div>
