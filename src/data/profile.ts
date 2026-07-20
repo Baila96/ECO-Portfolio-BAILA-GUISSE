@@ -228,10 +228,10 @@ export type GalleryItem = {
 };
 
 // Remplace ces entrées par tes propres réalisations.
-// Pour les photos : dépose tes images dans /src/assets/gallery/
+// Pour les photos : dépose tes images dans /gallery/
 // puis remplace `image` (miniature) et les `src` dans `gallery.before` ou `gallery.after`
 // (photos de la page détaillée) par le chemin vers ton fichier.
-// Ex : image: '/src/assets/gallery/belmont-toiture.jpg'
+// Ex : image: '/gallery/belmont-toiture.jpg'
 export const galleryItems: GalleryItem[] = [
   {
     slug: "belmont-agroparc-44kwc",
@@ -308,25 +308,25 @@ export const galleryItems: GalleryItem[] = [
     gallery: {
       before: [
         {
-          src: "/src/assets/gallery/vt-1.jpg",
+          src: "/gallery/vt-1.jpg",
           caption: "Vue de face du bâtiment Hamadryade",
         },
         {
-          src: "/src/assets/gallery/vt-2.jpg",
+          src: "/gallery/vt-2.jpg",
           caption: "Toiture et obstacles présents",
         },
         {
-          src: "/src/assets/gallery/vt-3.jpg",
+          src: "/gallery/vt-3.jpg",
           caption: "Toiture et obstacles présents",
         },
       ],
       after: [
-        { src: "/src/assets/gallery/belmont1.jpg", caption: "Après installation — Belmont 1" },
-        { src: "/src/assets/gallery/belmont2.jpg", caption: "Après installation — Belmont 2" },
-        { src: "/src/assets/gallery/belmont3.jpg", caption: "Après installation — Belmont 3" },
-        { src: "/src/assets/gallery/belmont4.jpg", caption: "Après installation — Belmont 4" },
-        { src: "/src/assets/gallery/belmont5.jpg", caption: "Après installation — Belmont 5" },
-        { src: "/src/assets/gallery/VideoBelmont.mp4", caption: "VideoBelmont", mediaType: "video" },
+        { src: "/gallery/belmont1.jpg", caption: "Après installation — Belmont 1" },
+        { src: "/gallery/belmont2.jpg", caption: "Après installation — Belmont 2" },
+        { src: "/gallery/belmont3.jpg", caption: "Après installation — Belmont 3" },
+        { src: "/gallery/belmont4.jpg", caption: "Après installation — Belmont 4" },
+        { src: "/gallery/belmont5.jpg", caption: "Après installation — Belmont 5" },
+        { src: "/gallery/VideoBelmont.mp4", caption: "VideoBelmont", mediaType: "video" },
       ],
     },
   },
@@ -405,33 +405,33 @@ export const galleryItems: GalleryItem[] = [
     gallery: {
       before: [
         {
-          src: "/src/assets/gallery/vt-A1.jpg",
+          src: "/gallery/vt-A1.jpg",
           caption: "Vue de loin de la maison",
         },
         {
-          src: "/src/assets/gallery/vt-A2.jpg",
+          src: "/gallery/vt-A2.jpg",
           caption: "Toiture de la maison (tuile)",
         },
         {
-          src: "/src/assets/gallery/vt-A3.jpg",
+          src: "/gallery/vt-A3.jpg",
           caption: "Vue de dessous de la toiture",
         },
       ],
       after: [
         {
-          src: "/src/assets/gallery/denis1.jpg",
+          src: "/gallery/denis1.jpg",
           caption: "Installation en cours",
         },
         {
-          src: "/src/assets/gallery/denis2.jpg",
+          src: "/gallery/denis2.jpg",
           caption: "Installation en cours",
         },
         {
-          src: "/src/assets/gallery/denis3.jpg",
+          src: "/gallery/denis3.jpg",
           caption: "Centrale installée",
         },
         {
-          src: "/src/assets/gallery/denis4.jpg",
+          src: "/gallery/denis4.jpg",
           caption: "Centrale installée",
         },
       ],
@@ -519,33 +519,33 @@ export const galleryItems: GalleryItem[] = [
     gallery: {
       before: [
         {
-          src: "/src/assets/gallery/AV2_Cyril.jpg",
+          src: "/gallery/AV2_Cyril.jpg",
           caption: "Avant installation",
         },
         {
-          src: "/src/assets/gallery/AV2_Cyril.jpg",
+          src: "/gallery/AV2_Cyril.jpg",
           caption: "Avant installation",
         },
         {
-          src: "/src/assets/gallery/AV1_Cyril.jpg",
+          src: "/gallery/AV1_Cyril.jpg",
           caption: "Avant installation",
         },
       ],
       after: [
         {
-          src: "/src/assets/gallery/AP1_Cyril.jpg",
+          src: "/gallery/AP1_Cyril.jpg",
           caption: "Après installation",
         },
         {
-          src: "/src/assets/gallery/AP2_Cyril.jpg",
+          src: "/gallery/AP2_Cyril.jpg",
           caption: "Après installation",
         },
         {
-          src: "/src/assets/gallery/AP3_Cyril.jpg",
+          src: "/gallery/AP3_Cyril.jpg",
           caption: "Après installation",
         },
         {
-          src: "/src/assets/gallery/AP4_Cyril.jpg",
+          src: "/gallery/AP4_Cyril.jpg",
           caption: "Après installation",
         },
       ],
@@ -630,15 +630,15 @@ export const galleryItems: GalleryItem[] = [
       before: [],
       after: [],
       installation: [
-        { src: "/src/assets/gallery/Bat1.jpg", caption: "Installation batterie et passerelle" },
-        { src: "/src/assets/gallery/Bat2.jpg", caption: "Installation batterie et passerelle" },
-        { src: "/src/assets/gallery/Bat3.jpg", caption: "Installation batterie et passerelle" },
-        { src: "/src/assets/gallery/Bat4.jpg", caption: "Installation batterie et passerelle" },
-        { src: "/src/assets/gallery/Bat5.jpg", caption: "Installation batterie et passerelle" },
-        { src: "/src/assets/gallery/Bat6.jpg", caption: "Installation batterie et passerelle" },
-        { src: "/src/assets/gallery/Bat7.jpg", caption: "Installation batterie et passerelle" },
-        { src: "/src/assets/gallery/Bat8.jpg", caption: "Installation batterie et passerelle" },
-        { src: "/src/assets/gallery/Bat9.jpg", caption: "Installation batterie et passerelle" },
+        { src: "/gallery/Bat1.jpg", caption: "Installation batterie et passerelle" },
+        { src: "/gallery/Bat2.jpg", caption: "Installation batterie et passerelle" },
+        { src: "/gallery/Bat3.jpg", caption: "Installation batterie et passerelle" },
+        { src: "/gallery/Bat4.jpg", caption: "Installation batterie et passerelle" },
+        { src: "/gallery/Bat5.jpg", caption: "Installation batterie et passerelle" },
+        { src: "/gallery/Bat6.jpg", caption: "Installation batterie et passerelle" },
+        { src: "/gallery/Bat7.jpg", caption: "Installation batterie et passerelle" },
+        { src: "/gallery/Bat8.jpg", caption: "Installation batterie et passerelle" },
+        { src: "/gallery/Bat9.jpg", caption: "Installation batterie et passerelle" },
       ],
     },
   },
@@ -718,17 +718,17 @@ export const galleryItems: GalleryItem[] = [
     ],
     gallery: {
       before: [
-        { src: "/src/assets/gallery/AV1.jpg", caption: "Avant installation" },
-        { src: "/src/assets/gallery/AV2.jpg", caption: "Avant installation" },
-        { src: "/src/assets/gallery/AV3.jpg", caption: "Avant installation" },
+        { src: "/gallery/AV1.jpg", caption: "Avant installation" },
+        { src: "/gallery/AV2.jpg", caption: "Avant installation" },
+        { src: "/gallery/AV3.jpg", caption: "Avant installation" },
       ],
       after: [
-        { src: "/src/assets/gallery/D1.jpg", caption: "Après installation" },
-        { src: "/src/assets/gallery/D2.jpg", caption: "Après installation" },
-        { src: "/src/assets/gallery/D3.jpg", caption: "Après installation" },
-        { src: "/src/assets/gallery/D4.jpg", caption: "Après installation" },
-        { src: "/src/assets/gallery/D5.jpg", caption: "Après installation" },
-        { src: "/src/assets/gallery/D6.jpg", caption: "Après installation" },
+        { src: "/gallery/D1.jpg", caption: "Après installation" },
+        { src: "/gallery/D2.jpg", caption: "Après installation" },
+        { src: "/gallery/D3.jpg", caption: "Après installation" },
+        { src: "/gallery/D4.jpg", caption: "Après installation" },
+        { src: "/gallery/D5.jpg", caption: "Après installation" },
+        { src: "/gallery/D6.jpg", caption: "Après installation" },
       ],
     },
   },
@@ -798,17 +798,17 @@ export const galleryItems: GalleryItem[] = [
     ],
     gallery: {
       before: [
-        { src: "/src/assets/gallery/AvNet1.jpg", caption: "Avant nettoyage" },
-        { src: "/src/assets/gallery/AvNet2.jpg", caption: "Avant nettoyage" },
-        { src: "/src/assets/gallery/AvNet3.jpg", caption: "Avant nettoyage" },
+        { src: "/gallery/AvNet1.jpg", caption: "Avant nettoyage" },
+        { src: "/gallery/AvNet2.jpg", caption: "Avant nettoyage" },
+        { src: "/gallery/AvNet3.jpg", caption: "Avant nettoyage" },
       ],
       after: [
-        { src: "/src/assets/gallery/ApNet1.jpg", caption: "Après nettoyage" },
-        { src: "/src/assets/gallery/ApNet2.jpg", caption: "Après nettoyage" },
-        { src: "/src/assets/gallery/ApNet3.jpg", caption: "Après nettoyage" },
-        { src: "/src/assets/gallery/ApNet4.jpg", caption: "Après nettoyage" },
-        { src: "/src/assets/gallery/ApNet5.MOV", caption: "Après nettoyage — vidéo", mediaType: "video" },
-        { src: "/src/assets/gallery/ApNet6.MOV", caption: "Après nettoyage — vidéo", mediaType: "video" },
+        { src: "/gallery/ApNet1.jpg", caption: "Après nettoyage" },
+        { src: "/gallery/ApNet2.jpg", caption: "Après nettoyage" },
+        { src: "/gallery/ApNet3.jpg", caption: "Après nettoyage" },
+        { src: "/gallery/ApNet4.jpg", caption: "Après nettoyage" },
+        { src: "/gallery/ApNet5.MOV", caption: "Après nettoyage — vidéo", mediaType: "video" },
+        { src: "/gallery/ApNet6.MOV", caption: "Après nettoyage — vidéo", mediaType: "video" },
       ],
     },
   },
@@ -893,9 +893,9 @@ export const galleryItems: GalleryItem[] = [
       before: [],
       after: [],
       installation: [
-        { src: "/src/assets/gallery/IRVE1.jpg", caption: "Borne de recharge IRVE" },
-        { src: "/src/assets/gallery/IRVE2.jpg", caption: "Borne de recharge IRVE" },
-        { src: "/src/assets/gallery/IRVE3.jpg", caption: "Borne de recharge IRVE" },
+        { src: "/gallery/IRVE1.jpg", caption: "Borne de recharge IRVE" },
+        { src: "/gallery/IRVE2.jpg", caption: "Borne de recharge IRVE" },
+        { src: "/gallery/IRVE3.jpg", caption: "Borne de recharge IRVE" },
       ],
     },
   },
@@ -1139,17 +1139,17 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
     ],
     gallery: {
       before: [
-        { src: "/src/assets/gallery/vt-1.jpg", caption: "Front view of the Hamadryade building" },
-        { src: "/src/assets/gallery/vt-2.jpg", caption: "Roof and existing obstacles" },
-        { src: "/src/assets/gallery/vt-3.jpg", caption: "Roof and existing obstacles" },
+        { src: "/gallery/vt-1.jpg", caption: "Front view of the Hamadryade building" },
+        { src: "/gallery/vt-2.jpg", caption: "Roof and existing obstacles" },
+        { src: "/gallery/vt-3.jpg", caption: "Roof and existing obstacles" },
       ],
       after: [
-        { src: "/src/assets/gallery/belmont1.jpg", caption: "After installation — Belmont 1" },
-        { src: "/src/assets/gallery/belmont2.jpg", caption: "After installation — Belmont 2" },
-        { src: "/src/assets/gallery/belmont3.jpg", caption: "After installation — Belmont 3" },
-        { src: "/src/assets/gallery/belmont4.jpg", caption: "After installation — Belmont 4" },
-        { src: "/src/assets/gallery/belmont5.jpg", caption: "After installation — Belmont 5" },
-        { src: "/src/assets/gallery/VideoBelmont.mp4", caption: "VideoBelmont", mediaType: "video" },
+        { src: "/gallery/belmont1.jpg", caption: "After installation — Belmont 1" },
+        { src: "/gallery/belmont2.jpg", caption: "After installation — Belmont 2" },
+        { src: "/gallery/belmont3.jpg", caption: "After installation — Belmont 3" },
+        { src: "/gallery/belmont4.jpg", caption: "After installation — Belmont 4" },
+        { src: "/gallery/belmont5.jpg", caption: "After installation — Belmont 5" },
+        { src: "/gallery/VideoBelmont.mp4", caption: "VideoBelmont", mediaType: "video" },
       ],
     },
   },
@@ -1210,15 +1210,15 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
     ],
     gallery: {
       before: [
-        { src: "/src/assets/gallery/vt-A1.jpg", caption: "Distant view of the house" },
-        { src: "/src/assets/gallery/vt-A2.jpg", caption: "Tiled roof of the house" },
-        { src: "/src/assets/gallery/vt-A3.jpg", caption: "Underside view of the roof" },
+        { src: "/gallery/vt-A1.jpg", caption: "Distant view of the house" },
+        { src: "/gallery/vt-A2.jpg", caption: "Tiled roof of the house" },
+        { src: "/gallery/vt-A3.jpg", caption: "Underside view of the roof" },
       ],
       after: [
-        { src: "/src/assets/gallery/denis1.jpg", caption: "Installation in progress" },
-        { src: "/src/assets/gallery/denis2.jpg", caption: "Installation in progress" },
-        { src: "/src/assets/gallery/denis3.jpg", caption: "Installed PV plant" },
-        { src: "/src/assets/gallery/denis4.jpg", caption: "Installed PV plant" },
+        { src: "/gallery/denis1.jpg", caption: "Installation in progress" },
+        { src: "/gallery/denis2.jpg", caption: "Installation in progress" },
+        { src: "/gallery/denis3.jpg", caption: "Installed PV plant" },
+        { src: "/gallery/denis4.jpg", caption: "Installed PV plant" },
       ],
     },
   },
@@ -1282,15 +1282,15 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
     ],
     gallery: {
       before: [
-        { src: "/src/assets/gallery/AV2_Cyril.jpg", caption: "Before installation" },
-        { src: "/src/assets/gallery/AV2_Cyril.jpg", caption: "Before installation" },
-        { src: "/src/assets/gallery/AV1_Cyril.jpg", caption: "Before installation" },
+        { src: "/gallery/AV2_Cyril.jpg", caption: "Before installation" },
+        { src: "/gallery/AV2_Cyril.jpg", caption: "Before installation" },
+        { src: "/gallery/AV1_Cyril.jpg", caption: "Before installation" },
       ],
       after: [
-        { src: "/src/assets/gallery/AP1_Cyril.jpg", caption: "After installation" },
-        { src: "/src/assets/gallery/AP2_Cyril.jpg", caption: "After installation" },
-        { src: "/src/assets/gallery/AP3_Cyril.jpg", caption: "After installation" },
-        { src: "/src/assets/gallery/AP4_Cyril.jpg", caption: "After installation" },
+        { src: "/gallery/AP1_Cyril.jpg", caption: "After installation" },
+        { src: "/gallery/AP2_Cyril.jpg", caption: "After installation" },
+        { src: "/gallery/AP3_Cyril.jpg", caption: "After installation" },
+        { src: "/gallery/AP4_Cyril.jpg", caption: "After installation" },
       ],
     },
   },
@@ -1355,15 +1355,15 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
       before: [],
       after: [],
       installation: [
-        { src: "/src/assets/gallery/Bat1.jpg", caption: "Battery and gateway installation" },
-        { src: "/src/assets/gallery/Bat2.jpg", caption: "Battery and gateway installation" },
-        { src: "/src/assets/gallery/Bat3.jpg", caption: "Battery and gateway installation" },
-        { src: "/src/assets/gallery/Bat4.jpg", caption: "Battery and gateway installation" },
-        { src: "/src/assets/gallery/Bat5.jpg", caption: "Battery and gateway installation" },
-        { src: "/src/assets/gallery/Bat6.jpg", caption: "Battery and gateway installation" },
-        { src: "/src/assets/gallery/Bat7.jpg", caption: "Battery and gateway installation" },
-        { src: "/src/assets/gallery/Bat8.jpg", caption: "Battery and gateway installation" },
-        { src: "/src/assets/gallery/Bat9.jpg", caption: "Battery and gateway installation" },
+        { src: "/gallery/Bat1.jpg", caption: "Battery and gateway installation" },
+        { src: "/gallery/Bat2.jpg", caption: "Battery and gateway installation" },
+        { src: "/gallery/Bat3.jpg", caption: "Battery and gateway installation" },
+        { src: "/gallery/Bat4.jpg", caption: "Battery and gateway installation" },
+        { src: "/gallery/Bat5.jpg", caption: "Battery and gateway installation" },
+        { src: "/gallery/Bat6.jpg", caption: "Battery and gateway installation" },
+        { src: "/gallery/Bat7.jpg", caption: "Battery and gateway installation" },
+        { src: "/gallery/Bat8.jpg", caption: "Battery and gateway installation" },
+        { src: "/gallery/Bat9.jpg", caption: "Battery and gateway installation" },
       ],
     },
   },
@@ -1423,17 +1423,17 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
     ],
     gallery: {
       before: [
-        { src: "/src/assets/gallery/AV1.jpg", caption: "Before installation" },
-        { src: "/src/assets/gallery/AV2.jpg", caption: "Before installation" },
-        { src: "/src/assets/gallery/AV3.jpg", caption: "Before installation" },
+        { src: "/gallery/AV1.jpg", caption: "Before installation" },
+        { src: "/gallery/AV2.jpg", caption: "Before installation" },
+        { src: "/gallery/AV3.jpg", caption: "Before installation" },
       ],
       after: [
-        { src: "/src/assets/gallery/D1.jpg", caption: "After installation" },
-        { src: "/src/assets/gallery/D2.jpg", caption: "After installation" },
-        { src: "/src/assets/gallery/D3.jpg", caption: "After installation" },
-        { src: "/src/assets/gallery/D4.jpg", caption: "After installation" },
-        { src: "/src/assets/gallery/D5.jpg", caption: "After installation" },
-        { src: "/src/assets/gallery/D6.jpg", caption: "After installation" },
+        { src: "/gallery/D1.jpg", caption: "After installation" },
+        { src: "/gallery/D2.jpg", caption: "After installation" },
+        { src: "/gallery/D3.jpg", caption: "After installation" },
+        { src: "/gallery/D4.jpg", caption: "After installation" },
+        { src: "/gallery/D5.jpg", caption: "After installation" },
+        { src: "/gallery/D6.jpg", caption: "After installation" },
       ],
     },
   },
@@ -1485,17 +1485,17 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
     ],
     gallery: {
       before: [
-        { src: "/src/assets/gallery/AvNet1.jpg", caption: "Before cleaning" },
-        { src: "/src/assets/gallery/AvNet2.jpg", caption: "Before cleaning" },
-        { src: "/src/assets/gallery/AvNet3.jpg", caption: "Before cleaning" },
+        { src: "/gallery/AvNet1.jpg", caption: "Before cleaning" },
+        { src: "/gallery/AvNet2.jpg", caption: "Before cleaning" },
+        { src: "/gallery/AvNet3.jpg", caption: "Before cleaning" },
       ],
       after: [
-        { src: "/src/assets/gallery/ApNet1.jpg", caption: "After cleaning" },
-        { src: "/src/assets/gallery/ApNet2.jpg", caption: "After cleaning" },
-        { src: "/src/assets/gallery/ApNet3.jpg", caption: "After cleaning" },
-        { src: "/src/assets/gallery/ApNet4.jpg", caption: "After cleaning" },
-        { src: "/src/assets/gallery/ApNet5.MOV", caption: "After cleaning — video", mediaType: "video" },
-        { src: "/src/assets/gallery/ApNet6.MOV", caption: "After cleaning — video", mediaType: "video" },
+        { src: "/gallery/ApNet1.jpg", caption: "After cleaning" },
+        { src: "/gallery/ApNet2.jpg", caption: "After cleaning" },
+        { src: "/gallery/ApNet3.jpg", caption: "After cleaning" },
+        { src: "/gallery/ApNet4.jpg", caption: "After cleaning" },
+        { src: "/gallery/ApNet5.MOV", caption: "After cleaning — video", mediaType: "video" },
+        { src: "/gallery/ApNet6.MOV", caption: "After cleaning — video", mediaType: "video" },
       ],
     },
   },
@@ -1561,9 +1561,9 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
       before: [],
       after: [],
       installation: [
-        { src: "/src/assets/gallery/IRVE1.jpg", caption: "EV charging station" },
-        { src: "/src/assets/gallery/IRVE2.jpg", caption: "EV charging station" },
-        { src: "/src/assets/gallery/IRVE3.jpg", caption: "EV charging station" },
+        { src: "/gallery/IRVE1.jpg", caption: "EV charging station" },
+        { src: "/gallery/IRVE2.jpg", caption: "EV charging station" },
+        { src: "/gallery/IRVE3.jpg", caption: "EV charging station" },
       ],
     },
   },
