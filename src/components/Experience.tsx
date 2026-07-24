@@ -6,7 +6,7 @@ import SectionTitle from './SectionTitle'
 
 const experiences = {
   fr: [
-    { title: "Chargé d'Affaires Photovoltaïque — Stage", company: "Sud Concept Énergie, Vedène (84)", period: "Mars 2026 – Août 2026", bullets: ["Suivi et analyse des performances de centrales PV", "Détection d'anomalies et rédaction de comptes-rendus", "Études PV complètes pour des centrales jusqu’à 484 kWc", "Dimensionnement électrique et conformité normative", "Suivi de chantier et coordination terrain"] },
+    { title: "Chargé d'Affaires Photovoltaïque — Stage", company: "Sud Concept Énergie, Vedène (84)", period: "Mars 2026 – Juillet 2026", bullets: ["Suivi et analyse des performances de centrales PV", "Détection d'anomalies et rédaction de comptes-rendus", "Études PV complètes pour des centrales jusqu’à 484 kWc", "Dimensionnement électrique et conformité normative", "Suivi de chantier et coordination terrain"] },
     { title: "Projet Professionnel — Centrale PV 37 kWc", company: "Université de Limoges", period: "Oct. 2025 – Déc. 2025", bullets: ["Modélisation complète du bâtiment sous Revit", "Conception d’une centrale de 168 panneaux", "Export BIM vers Archélios Pro", "Calcul du Performance Ratio"] },
     { title: "Stage de Recherche — Production de Vapeur par Héliostat", company: "Université Paul Sabatier, Toulouse", period: "Mars 2021 – Juil. 2021", bullets: ["Bilan thermique et modèle analytique d'un système CSP", "Développement d'une solution numérique", "Application à la production de vapeur pour turbine"] },
   ],

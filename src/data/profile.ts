@@ -138,7 +138,7 @@ export const experiences: Experience[] = [
   {
     title: "Chargé d'Affaires Photovoltaïque — Stage",
     company: "Sud Concept Énergie, Vedène (84)",
-    period: "Mars 2026 – Août 2026",
+    period: "Mars 2026 – Juillet 2026",
     bullets: [
       "Suivi et analyse des performances de centrales PV via portails de supervision",
       "Détection d'anomalies, interprétation des alarmes et rédaction de comptes-rendus",
