@@ -418,6 +418,16 @@
 /* ─────────────────────────────────────────────────────────────
    ABOUT
 ───────────────────────────────────────────────────────────── */
+.title-tail {
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .title-tail {
+    white-space: normal;
+  }
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: 1.6fr 1fr;
@@ -811,6 +821,8 @@
   flex-direction: column;
   --mx: 0;
   --my: 0;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 420px;
 }
 
 .thumb {

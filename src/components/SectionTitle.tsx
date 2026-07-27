@@ -11,6 +11,10 @@ export default function SectionTitle({
   accent?: string
   description?: string
 }) {
+  const words = title.trim().split(' ')
+  const lastWord = words.pop() ?? ''
+  const titleStart = words.join(' ')
+
   return (
     <motion.div
       className="section-head"
@@ -21,7 +25,11 @@ export default function SectionTitle({
     >
       <span className="eyebrow">{eyebrow}</span>
       <h2 className="section-title">
-        {title} {accent && <span className="accent">{accent}</span>}
+        {titleStart && `${titleStart} `}
+        <span className="title-tail">
+          {lastWord}
+          {accent && <> <span className="accent">{accent}</span></>}
+        </span>
       </h2>
       {description && <p style={{ marginTop: 14 }}>{description}</p>}
     </motion.div>

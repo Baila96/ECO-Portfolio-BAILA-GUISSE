@@ -1,10 +1,36 @@
-import { AnimatePresence, motion } from 'framer-motion'
-import { useMemo, useState } from 'react'
+import { AnimatePresence, motion, useInView } from 'framer-motion'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { MouseEvent as ReactMouseEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { GalleryItem, getPortfolioData } from '../data/profile'
+import { GalleryItem, getPortfolioData, ProjectImage } from '../data/profile'
 import { useLanguage } from '../i18n/LanguageContext'
 import SectionTitle from './SectionTitle'
+
+// Slugs pour lesquels on garde l'illustration générique plutôt que le
+// carrousel de photos réelles (avant/pendant/après installation).
+const EXCLUDED_CAROUSEL_SLUGS = new Set([
+  'etude-integration-irve-bornes-recharge',
+])
+
+function isVideoPhoto(photo: ProjectImage) {
+  if (!photo.src) return false
+  return photo.mediaType === 'video' || /\.(mp4|webm|mov)$/i.test(photo.src)
+}
+
+// Choisit la meilleure série de photos disponible pour la miniature :
+// priorité aux photos "après" (pendant/après installation), puis "installation",
+// puis "avant" en dernier recours. Les vidéos sont exclues des miniatures.
+function getThumbnailPhotos(item: GalleryItem): ProjectImage[] {
+  const sections = [item.gallery.after, item.gallery.installation, item.gallery.before]
+
+  for (const section of sections) {
+    if (!section) continue
+    const photos = section.filter((photo) => Boolean(photo.src) && !isVideoPhoto(photo))
+    if (photos.length > 0) return photos
+  }
+
+  return []
+}
 
 const FILTERS: Array<GalleryItem['category'] | 'Tous'> = ['Tous', 'Installation', 'Étude', 'SAV']
 
@@ -227,8 +253,61 @@ function handleCardPointerLeave(event: ReactMouseEvent<HTMLElement>) {
   event.currentTarget.style.setProperty('--my', '0')
 }
 
+const THUMB_CAROUSEL_INTERVAL_MS = 3200
+
+// Petit carrousel auto-défilant pour la miniature de la carte projet :
+// fait tourner les photos "pendant/après installation" fournies par profile.ts.
+function ThumbnailCarousel({ photos }: { photos: ProjectImage[] }) {
+  const [index, setIndex] = useState(0)
+  const wrapRef = useRef<HTMLDivElement>(null)
+  const inView = useInView(wrapRef, { margin: '200px' })
+
+  useEffect(() => {
+    setIndex(0)
+  }, [photos])
+
+  useEffect(() => {
+    if (photos.length <= 1 || !inView) return
+
+    const timer = window.setInterval(() => {
+      setIndex((value) => (value + 1) % photos.length)
+    }, THUMB_CAROUSEL_INTERVAL_MS)
+
+    return () => window.clearInterval(timer)
+  }, [photos.length, inView])
+
+  const current = photos[index]
+  if (!current) return null
+
+  return (
+    <div className="thumb-carousel" ref={wrapRef}>
+      <AnimatePresence initial={false}>
+        <motion.img
+          key={current.src}
+          src={current.src}
+          alt={current.caption}
+          className="thumb-photo thumb-carousel-slide"
+          initial={{ x: '100%' }}
+          animate={{ x: '0%' }}
+          exit={{ x: '-100%' }}
+          transition={{ duration: 0.9, ease: [0.65, 0, 0.35, 1] }}
+        />
+      </AnimatePresence>
+
+      {photos.length > 1 && (
+        <span className="thumb-carousel-dots">
+          {photos.map((_, i) => (
+            <span key={i} className={`thumb-carousel-dot ${i === index ? 'is-active' : ''}`} />
+          ))}
+        </span>
+      )}
+    </div>
+  )
+}
+
 function Thumbnail({ item }: { item: GalleryItem }) {
   const { lang } = useLanguage()
+
   if (item.image) {
     return (
       <div className={`thumb thumb-${SLUG[item.category]}`}>
@@ -240,9 +319,27 @@ function Thumbnail({ item }: { item: GalleryItem }) {
     )
   }
 
-  // Pas encore de photo : illustration générative adaptée au type de projet.
-  // Remplace par une vraie photo en ajoutant `image: '/src/assets/gallery/....jpg'`
-  // à l'entrée correspondante dans src/data/profile.ts.
+  // Carrousel de vraies photos (pendant/après installation) pour les projets
+  // qui ont des photos de chantier, sauf pour les projets exclus qui gardent
+  // leur illustration générique.
+  if (!EXCLUDED_CAROUSEL_SLUGS.has(item.slug)) {
+    const carouselPhotos = getThumbnailPhotos(item)
+    if (carouselPhotos.length > 0) {
+      return (
+        <div className={`thumb thumb-${SLUG[item.category]}`}>
+          <ThumbnailCarousel photos={carouselPhotos} />
+          <span className="thumb-label mono">
+            {ICON[item.category]} {CATEGORY_LABEL[item.category][lang]}
+          </span>
+        </div>
+      )
+    }
+  }
+
+  // Pas de photo disponible (ou projet exclu) : illustration générative
+  // adaptée au type de projet. Remplace par une vraie photo en ajoutant
+  // `image: '/src/assets/gallery/....jpg'` à l'entrée correspondante dans
+  // src/data/profile.ts.
   const variant = item.illustration ?? 'panels'
 
   return (

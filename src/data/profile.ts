@@ -8,7 +8,7 @@ export const identity = {
   role: "Chargé d\u2019Affaires Photovoltaïque",
   tagline:
     "De l\u2019étude technique au suivi de chantier : je pilote des projets photovoltaïques dans leur intégralité.",
-  location: "Avignon - mobilité France entière",
+  location: "Limoges - mobilité France entière",
   phone: "+33 6 51 80 98 01",
   email: "guissebaila1996@gmail.com",
   permis: "Permis B - véhiculé",
@@ -42,12 +42,12 @@ export const kpis = [
   },
 ];
 
-export const profileText = `Étudiant en Master Smart Energy Logistics, je recherche une alternance à partir de septembre 2026 dans le domaine du photovoltaïque : étude, dimensionnement, relation client ou suivi de chantier. En tant que chargé d'affaires photovoltaïque chez Sud Concept, j'ai piloté des projets PV de bout en bout, de la prise de besoin client jusqu'au suivi d'installation, pour une clientèle B2B et B2C. Également ouvert à une opportunité en CDI.`;
+export const profileText = `Chargé d'affaires photovoltaïque, je pilote des projets PV de bout en bout, de la prise de besoin client jusqu'au suivi d'installation. Ouvert à une opportunité en CDI dès à présent, ou à une alternance à partir de septembre 2026 dans le cadre de mon Master Smart Energy : étude, dimensionnement, relation client et suivi de chantier.`;
 
 export const education = [
   {
-    degree: "Master MLAI — Smart Energy Logistics",
-    school: "ESTIA, Redon",
+    degree: "Master MLAI — Smart Energy",
+    school: "",
     period: "2026 – 2027",
   },
   {
@@ -140,13 +140,13 @@ export const experiences: Experience[] = [
     company: "Sud Concept Énergie, Vedène (84)",
     period: "Mars 2026 – Juillet 2026",
     bullets: [
+      "Participation active à la vente et à la relation client",
+      "Études PV complètes (Archélios Pro, PVsyst, Solteo) pour des centrales",
+      "Modélisation sous Revit, Sketchup et export vers Archélios Pro via plugin, Calepingae sous Autocad",
+      "Dimensionnement électrique : câblage AC/DC,  éléments de protection électrique (NF C 15-100 / UTE C 15-712-1)",
+      "Suivi de chantier et coordination des interventions terrain (toiture, B2B/B2C)",
       "Suivi et analyse des performances de centrales PV via portails de supervision",
       "Détection d'anomalies, interprétation des alarmes et rédaction de comptes-rendus",
-      "Études PV complètes (Archélios Pro, PVGIS, Solteo) pour des centrales jusqu\u2019à 484 kWc",
-      "Dimensionnement électrique : câblage AC/DC, protection parafoudre, bilan des puissances (NF C 15-100 / UTE C 15-712-1)",
-      "Suivi de chantier et coordination des interventions terrain (toiture, B2B/B2C)",
-      "Modélisation BIM sous Revit, export vers Archélios Pro via plugin",
-      "Participation active à la vente et à la relation client",
     ],
   },
   {
@@ -553,6 +553,92 @@ export const galleryItems: GalleryItem[] = [
   },
 
   {
+    slug: "centrale-residentielle-588kwc-toit-plat-sorgues",
+    title: "Centrale résidentielle toit plat 5,88 kWc — Batterie virtuelle",
+    meta: "Sorgues (84) — autoconsommation Urban Solar",
+    category: "Installation",
+    description:
+      "12 modules bifaciaux AIKO Neostar 490 Wc, 12 micro-onduleurs Enphase IQ8P, structure Sun Ballast toit plat et batterie virtuelle Urban Solar Energy.",
+    context:
+      "Ce projet a été réalisé pour un client particulier basé à Sorgues (84700). Le foyer affichait une consommation électrique annuelle de 7 871 kWh (installation monophasée, compteur 6 kVA en option Base). L'objectif était de concevoir un système photovoltaïque performant capable de couvrir la totalité des besoins énergétiques de l'habitation, en s'adaptant à une toiture présentant une très faible pente (3°). Pour éviter toute perte d'énergie, le client a opté pour un système d'autoconsommation couplé à une solution de batterie virtuelle.",
+    mission: [
+      "Analyse et calepinage : étude du profil de consommation et conception de l'implantation avec une orientation Est-Ouest sur la toiture à 3° d'inclinaison",
+      "Sélection du matériel : prescription d'un matériel de très haute performance, associant des modules bifaciaux AIKO Neostar (490 Wc) et la nouvelle génération de micro-onduleurs Enphase IQ8P",
+      "Ingénierie du stockage : modélisation de la production pour dimensionner la part d'autoconsommation directe et évaluer le volume de surplus à confier au système de stockage virtuel d'Urban Solar Energy",
+    ],
+    challenges: [
+      {
+        problem:
+          "Toiture à très faible inclinaison (3°), nécessitant un système de fixation spécifique pour garantir la stabilité et le lestage sans perforer l'étanchéité",
+        solution:
+          "Intégration du système de fixation Sun Ballast, parfaitement adapté aux toits plats, combiné à une disposition Est-Ouest pour lisser la courbe de production tout au long de la journée",
+      },
+      {
+        problem:
+          "Les modules AIKO de 490 Wc génèrent un courant important qui nécessite une électronique de conversion robuste pour éviter l'écrêtage",
+        solution:
+          "Déploiement de 12 micro-onduleurs Enphase IQ8P-72-2-INT (0,48 kVA), exploitant le plein potentiel des panneaux tout en assurant une fiabilité maximale (garantie 25 ans)",
+      },
+      {
+        problem:
+          "Une fois les besoins diurnes couverts, le système génère un excédent important estimé à plus de 3 200 kWh annuels",
+        solution:
+          "Utilisation de la batterie virtuelle Urban Solar : le surplus est réinjecté et stocké virtuellement sur le réseau pour être restitué ultérieurement, sous le pilotage de la passerelle Envoy Enphase Metered",
+      },
+    ],
+    specs: [
+      { label: "Puissance installée", value: "5,88 kWc" },
+      { label: "Production annuelle estimée", value: "7 984 kWh/an" },
+      { label: "Consommation du foyer", value: "7 871 kWh/an" },
+      { label: "Panneaux", value: "12 × AIKO Neostar bifaciaux 490 Wc" },
+      { label: "Onduleurs", value: "12 × Enphase IQ8P-72-2-INT — 0,48 kVA" },
+      { label: "Structure", value: "Sun Ballast — toit plat, Est-Ouest" },
+      { label: "Orientation / inclinaison", value: "Est-Ouest / 3°" },
+      {
+        label: "Raccordement",
+        value: "Autoconsommation + batterie virtuelle Urban Solar",
+      },
+      { label: "Taux d\u2019autoproduction", value: "100 %" },
+      { label: "TVA", value: "5,5 % — rénovation énergétique" },
+    ],
+    results: [
+      "Production annuelle estimée à 7 984 kWh, couvrant l'intégralité de la consommation du foyer",
+      "Autonomie totale (100 %) grâce à l'autoconsommation directe et à la batterie virtuelle",
+      "Temps de retour sur investissement (TRI) de 8 ans",
+    ],
+    resultStats: [
+      {
+        icon: "energy",
+        value: "7 984 kWh/an",
+        label: "Production annuelle estimée, pour une consommation de 7 871 kWh/an",
+      },
+      {
+        icon: "performance",
+        value: "60 % / 40 %",
+        label: "Autoconsommation directe / restitution via batterie virtuelle",
+      },
+      {
+        icon: "finance",
+        value: "8 ans",
+        label: "Temps de retour sur investissement (TRI)",
+      },
+    ],
+    gallery: {
+      before: [
+        { src: "/gallery/DUF0.JPG", caption: "Avant installation" },
+      ],
+      after: [
+        { src: "/gallery/DUF1.JPG", caption: "Pendant / après installation" },
+        { src: "/gallery/DUF2.JPG", caption: "Pendant / après installation" },
+        { src: "/gallery/DUF3.JPG", caption: "Pendant / après installation" },
+        { src: "/gallery/DUF4.JPG", caption: "Pendant / après installation" },
+        { src: "/gallery/DUF5.JPG", caption: "Pendant / après installation" },
+        { src: "/gallery/DUF6.MOV", caption: "Pendant / après installation — vidéo", mediaType: "video" },
+      ],
+    },
+  },
+
+  {
     slug: "integration-stockage-enphase-iq-battery-5p",
     title: "Intégration d'un Système de Stockage Intelligent Enphase (IQ Battery 5P)",
     meta: "Installation batterie — passerelle de communication Enphase",
@@ -644,7 +730,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     slug: "etude-residentielle-3kwc-le-pontet",
-    title: "Étude résidentielle 3 kWc — Batterie virtuelle",
+    title: "Centrale résidentielle 3 kWc — Batterie virtuelle",
     meta: "Le Pontet (84) — autoconsommation Urban Solar",
     category: "Installation",
     description:
@@ -726,9 +812,9 @@ export const galleryItems: GalleryItem[] = [
         { src: "/gallery/D1.jpg", caption: "Après installation" },
         { src: "/gallery/D2.jpg", caption: "Après installation" },
         { src: "/gallery/D3.jpg", caption: "Après installation" },
-        { src: "/gallery/D4.jpg", caption: "Après installation" },
-        { src: "/gallery/D5.jpg", caption: "Après installation" },
-        { src: "/gallery/D6.jpg", caption: "Après installation" },
+        { src: "/gallery/D4.JPG", caption: "Après installation" },
+        { src: "/gallery/D5.JPG", caption: "Après installation" },
+        { src: "/gallery/D6.JPG", caption: "Après installation" },
       ],
     },
   },
@@ -904,7 +990,7 @@ export const galleryItems: GalleryItem[] = [
 
 export const contact = {
   intro:
-    "Disponible pour une alternance à partir de septembre 2026 ou une opportunité en CDI.",
+    "Disponible pour un CDI dès maintenant, ou pour une alternance à partir de septembre 2026.",
 };
 
 // ─────────────────────────────────────────────────────────────
@@ -944,17 +1030,17 @@ const kpisEn = [
 const identityEn = {
   role: "Photovoltaic Project Engineer",
   tagline: "From technical studies to site supervision: I manage photovoltaic projects from start to finish.",
-  location: "Avignon - available across France",
+  location: "Limoges - available across France",
   permis: "Driving licence - mobile",
 }
 
 const profileTextEn =
-  "Master's student in Smart Energy Logistics, looking for a work-study opportunity from September 2026 in photovoltaics: technical studies, sizing, customer relations or site supervision. As a photovoltaic project engineer at Sud Concept, I managed PV projects from customer needs assessment through to installation follow-up, for both B2B and B2C clients. Also open to full-time opportunities."
+  "Photovoltaic project engineer, I manage PV projects from start to finish, from customer needs assessment through to installation follow-up. Open to a full-time position starting now, or to a work-study opportunity from September 2026 as part of my Master's in Smart Energy: technical studies, sizing, customer relations and site supervision."
 
 const educationEn = [
   {
-    degree: "Master MLAI — Smart Energy Logistics",
-    school: "ESTIA, Redon",
+    degree: "Master MLAI — Smart Energy",
+    school: "",
     period: "2026 – 2027",
   },
   {
@@ -1295,6 +1381,87 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
     },
   },
 
+  "centrale-residentielle-588kwc-toit-plat-sorgues": {
+    title: "5.88 kWp residential flat-roof PV plant — Virtual battery",
+    meta: "Sorgues (84) — Urban Solar self-consumption",
+    description:
+      "12 AIKO Neostar bifacial 490 Wp modules, 12 Enphase IQ8P microinverters, Sun Ballast flat-roof mounting and Urban Solar Energy virtual battery.",
+    context:
+      "This project was carried out for a private client based in Sorgues (84700). The household had an annual electricity consumption of 7,871 kWh (single-phase installation, 6 kVA meter under the Base tariff). The goal was to design a high-performance photovoltaic system able to cover the household's full energy needs, adapting to a roof with a very shallow pitch (3°). To avoid any energy loss, the client chose a self-consumption system combined with a virtual battery solution.",
+    mission: [
+      "Analysis and layout: study of the consumption profile and design of the East-West layout on the 3°-pitch roof",
+      "Equipment selection: prescription of high-performance equipment, combining AIKO Neostar bifacial modules (490 Wp) with the new generation of Enphase IQ8P microinverters",
+      "Storage engineering: modelling of production to size the direct self-consumption share and evaluate the surplus volume entrusted to the Urban Solar Energy virtual storage system",
+    ],
+    challenges: [
+      {
+        problem:
+          "Very shallow roof pitch (3°), requiring a specific mounting system to guarantee stability and ballasting without penetrating the waterproofing",
+        solution:
+          "Integration of the Sun Ballast mounting system, perfectly suited to flat roofs, combined with an East-West layout to smooth the production curve throughout the day",
+      },
+      {
+        problem:
+          "The 490 Wp AIKO modules generate a high current that requires robust conversion electronics to avoid clipping",
+        solution:
+          "Deployment of 12 Enphase IQ8P-72-2-INT microinverters (0.48 kVA), unlocking the panels' full potential while ensuring maximum reliability (25-year warranty)",
+      },
+      {
+        problem:
+          "Once daytime needs are covered, the system generates a significant surplus estimated at over 3,200 kWh per year",
+        solution:
+          "Use of the Urban Solar virtual battery: the surplus is fed back and virtually stored on the grid to be returned later, all managed through the Envoy Enphase Metered communication gateway",
+      },
+    ],
+    specs: [
+      { label: "Installed capacity", value: "5.88 kWp" },
+      { label: "Estimated annual production", value: "7,984 kWh/year" },
+      { label: "Household consumption", value: "7,871 kWh/year" },
+      { label: "Modules", value: "12 × AIKO Neostar bifacial 490 Wp" },
+      { label: "Inverters", value: "12 × Enphase IQ8P-72-2-INT — 0.48 kVA" },
+      { label: "Mounting system", value: "Sun Ballast — flat roof, East-West" },
+      { label: "Orientation / tilt", value: "East-West / 3°" },
+      { label: "Grid connection", value: "Self-consumption + Urban Solar virtual battery" },
+      { label: "Self-sufficiency rate", value: "100%" },
+      { label: "VAT", value: "5.5% — residential energy renovation" },
+    ],
+    results: [
+      "Estimated annual production of 7,984 kWh, covering the household's full consumption",
+      "Total autonomy (100%) thanks to direct self-consumption and the virtual battery",
+      "8-year return on investment (ROI)",
+    ],
+    resultStats: [
+      {
+        icon: "energy",
+        value: "7,984 kWh/year",
+        label: "Estimated annual production, for a consumption of 7,871 kWh/year",
+      },
+      {
+        icon: "performance",
+        value: "60% / 40%",
+        label: "Direct self-consumption / virtual battery return",
+      },
+      {
+        icon: "finance",
+        value: "8 years",
+        label: "Return on investment (ROI)",
+      },
+    ],
+    gallery: {
+      before: [
+        { src: "/gallery/DUF0.JPG", caption: "Before installation" },
+      ],
+      after: [
+        { src: "/gallery/DUF1.JPG", caption: "During / after installation" },
+        { src: "/gallery/DUF2.JPG", caption: "During / after installation" },
+        { src: "/gallery/DUF3.JPG", caption: "During / after installation" },
+        { src: "/gallery/DUF4.JPG", caption: "During / after installation" },
+        { src: "/gallery/DUF5.JPG", caption: "During / after installation" },
+        { src: "/gallery/DUF6.MOV", caption: "During / after installation — video", mediaType: "video" },
+      ],
+    },
+  },
+
   "integration-stockage-enphase-iq-battery-5p": {
     title: "Integration of an Enphase IQ Battery 5P smart storage system",
     meta: "Battery installation — Enphase communication gateway",
@@ -1369,7 +1536,7 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
   },
 
   "etude-residentielle-3kwc-le-pontet": {
-    title: "3 kWp residential study — Virtual battery",
+    title: "3 kWp residential PV plant — Virtual battery",
     meta: "Le Pontet (84) — Urban Solar self-consumption",
     description:
       "6 DMEGC Solar bifacial 500 Wp modules, ATMOCE MI-1000 microinverters and Urban Solar Energy virtual battery.",
@@ -1431,9 +1598,9 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
         { src: "/gallery/D1.jpg", caption: "After installation" },
         { src: "/gallery/D2.jpg", caption: "After installation" },
         { src: "/gallery/D3.jpg", caption: "After installation" },
-        { src: "/gallery/D4.jpg", caption: "After installation" },
-        { src: "/gallery/D5.jpg", caption: "After installation" },
-        { src: "/gallery/D6.jpg", caption: "After installation" },
+        { src: "/gallery/D4.JPG", caption: "After installation" },
+        { src: "/gallery/D5.JPG", caption: "After installation" },
+        { src: "/gallery/D6.JPG", caption: "After installation" },
       ],
     },
   },
@@ -1605,7 +1772,7 @@ export function getPortfolioData(lang: Lang) {
     galleryItems: isEn ? galleryItemsEn : galleryItems,
     contact: {
       intro: isEn
-        ? "Available for a work-study position from September 2026 or for a full-time opportunity."
+        ? "Available for a full-time position starting now, or for a work-study opportunity from September 2026."
         : contact.intro,
     },
   }

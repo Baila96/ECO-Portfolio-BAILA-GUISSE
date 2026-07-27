@@ -10,6 +10,9 @@ type Region = {
   labelFr: string
   labelEn: string
   yieldPerKwc: number
+  // 1 = contraste été/hiver marqué (régions nordiques), valeur plus basse =
+  // production plus régulière à l'année (régions les plus ensoleillées du Sud).
+  seasonality: number
 }
 
 type Quality = {
@@ -22,12 +25,12 @@ type Quality = {
 }
 
 const REGIONS: Region[] = [
-  { key: 'nord', labelFr: 'Nord / Hauts-de-France', labelEn: 'North / Hauts-de-France', yieldPerKwc: 1050 },
-  { key: 'idf', labelFr: 'Île-de-France', labelEn: 'Paris region', yieldPerKwc: 1100 },
-  { key: 'est', labelFr: 'Grand Est', labelEn: 'Eastern France', yieldPerKwc: 1080 },
-  { key: 'centre-rhone', labelFr: 'Centre / Rhône-Alpes', labelEn: 'Central France / Rhône-Alpes', yieldPerKwc: 1200 },
-  { key: 'sud-ouest', labelFr: 'Sud-Ouest', labelEn: 'South-West France', yieldPerKwc: 1300 },
-  { key: 'vaucluse-paca', labelFr: 'Vaucluse / PACA', labelEn: 'Vaucluse / Provence-Alpes-Côte d’Azur', yieldPerKwc: 1420 },
+  { key: 'nord', labelFr: 'Nord / Hauts-de-France', labelEn: 'North / Hauts-de-France', yieldPerKwc: 1050, seasonality: 1 },
+  { key: 'idf', labelFr: 'Île-de-France', labelEn: 'Paris region', yieldPerKwc: 1100, seasonality: 0.95 },
+  { key: 'est', labelFr: 'Grand Est', labelEn: 'Eastern France', yieldPerKwc: 1080, seasonality: 0.95 },
+  { key: 'centre-rhone', labelFr: 'Centre / Rhône-Alpes', labelEn: 'Central France / Rhône-Alpes', yieldPerKwc: 1200, seasonality: 0.85 },
+  { key: 'sud-ouest', labelFr: 'Sud-Ouest', labelEn: 'South-West France', yieldPerKwc: 1300, seasonality: 0.78 },
+  { key: 'vaucluse-paca', labelFr: 'Vaucluse / PACA', labelEn: 'Vaucluse / Provence-Alpes-Côte d’Azur', yieldPerKwc: 1420, seasonality: 0.68 },
 ]
 
 const QUALITY: Quality[] = [
@@ -45,7 +48,7 @@ const QUALITY: Quality[] = [
     labelEn: 'Good',
     hintFr: 'Est/Ouest ou inclinaison variable',
     hintEn: 'East/West or variable tilt',
-    factor: 0.9,
+    factor: 0.85,
   },
   {
     key: 'sous-optimale',
@@ -184,8 +187,15 @@ function useAnimatedNumber(target: number, duration = 300) {
   return display
 }
 
-function distributeAnnualKwh(annualKwh: number) {
-  const roundedValues = MONTHLY_SHARE.map((share) => Math.round(annualKwh * share))
+function distributeAnnualKwh(annualKwh: number, seasonality: number) {
+  // Mélange la courbe saisonnière avec une répartition uniforme (1/12 par mois).
+  // seasonality = 1 -> courbe saisonnière intégrale (fort contraste été/hiver).
+  // seasonality = 0 -> production parfaitement lissée sur l'année.
+  // La somme des parts reste exactement 1 quel que soit le mélange.
+  const uniformShare = 1 / MONTHLY_SHARE.length
+  const blendedShare = MONTHLY_SHARE.map((share) => uniformShare + seasonality * (share - uniformShare))
+
+  const roundedValues = blendedShare.map((share) => Math.round(annualKwh * share))
   const difference = annualKwh - roundedValues.reduce((sum, value) => sum + value, 0)
 
   // Correction de l'écart d'arrondi sur le mois de production maximale.
@@ -195,9 +205,9 @@ function distributeAnnualKwh(annualKwh: number) {
   return roundedValues
 }
 
-function MiniMonthlyChart({ annualKwh, lang }: { annualKwh: number; lang: Lang }) {
+function MiniMonthlyChart({ annualKwh, seasonality, lang }: { annualKwh: number; seasonality: number; lang: Lang }) {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null)
-  const values = useMemo(() => distributeAnnualKwh(annualKwh), [annualKwh])
+  const values = useMemo(() => distributeAnnualKwh(annualKwh, seasonality), [annualKwh, seasonality])
   const max = Math.max(...values, 1)
 
   const width = 360
@@ -465,7 +475,7 @@ export default function PVSimulator() {
                 <span>{quality.factor}</span>
               </div>
 
-              <MiniMonthlyChart annualKwh={annualKwh} lang={lang} />
+              <MiniMonthlyChart annualKwh={annualKwh} seasonality={region.seasonality} lang={lang} />
 
               <p className="pv-sim-disclaimer">{t.disclaimer}</p>
             </div>

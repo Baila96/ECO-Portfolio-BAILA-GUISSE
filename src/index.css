@@ -146,13 +146,13 @@ a {
 }
 
 .section-head {
-  margin-bottom: 56px;
+  margin-bottom: 32px;
   max-width: 640px;
 }
 
 .section-title {
   font-size: clamp(1.8rem, 3.2vw, 2.6rem);
-  margin-top: 12px;
+  margin-top: 8px;
   font-weight: 600;
 }
 

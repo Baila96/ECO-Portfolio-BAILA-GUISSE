@@ -145,7 +145,7 @@
 }
 
 .radar-dot.is-active {
-  fill: var(--orange);
+  fill: var(--sun);
   filter: drop-shadow(0 0 17px rgba(255, 165, 61, 0.58));
 }
 
@@ -236,6 +236,27 @@
   color: var(--text-muted);
   font-size: 0.94rem;
   line-height: 1.62;
+}
+
+.radar-progress-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  margin: 16px 0 0;
+}
+
+.radar-progress-fill {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  transform-origin: left;
+  background: var(--green);
+}
+
+.radar-progress-solar .radar-progress-fill {
+  background: var(--sun);
 }
 
 .radar-detail-list {

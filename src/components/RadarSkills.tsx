@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useMemo, useState } from 'react'
 import { useLanguage } from '../i18n/LanguageContext'
 import SectionTitle from './SectionTitle'
@@ -42,19 +42,6 @@ const DOMAINS: SkillDomain[] = [
       'Site preparation, technical reading, material anticipation, team coordination and field constraint follow-up through commissioning.',
     highlightsFr: ['Préparation matériel', 'Contraintes terrain', 'Suivi installation'],
     highlightsEn: ['Material preparation', 'Field constraints', 'Installation follow-up'],
-  },
-  {
-    key: 'sav',
-    fr: 'SAV',
-    en: 'After-sales',
-    score: 84,
-    accent: 'green',
-    descriptionFr:
-      'Analyse des défauts, suivi monitoring, compréhension des alertes onduleurs, passerelles et batteries, puis proposition d’actions correctives claires.',
-    descriptionEn:
-      'Fault analysis, monitoring follow-up, understanding inverter, gateway and battery alerts, then proposing clear corrective actions.',
-    highlightsFr: ['Diagnostic', 'Monitoring', 'Actions correctives'],
-    highlightsEn: ['Troubleshooting', 'Monitoring', 'Corrective actions'],
   },
   {
     key: 'client',
@@ -126,18 +113,6 @@ function makeGridPoints(level: number, count: number, center: number, radius: nu
       return `${point.x},${point.y}`
     })
     .join(' ')
-}
-
-function AnimatedScore({ value }: { value: number }) {
-  const motionValue = useMotionValue(value)
-  const springValue = useSpring(motionValue, { stiffness: 120, damping: 22 })
-  const rounded = useTransform(springValue, (latest) => Math.round(latest))
-
-  useEffect(() => {
-    motionValue.set(value)
-  }, [motionValue, value])
-
-  return <motion.span>{rounded}</motion.span>
 }
 
 export default function RadarSkills() {
@@ -357,11 +332,6 @@ export default function RadarSkills() {
                 exit={{ opacity: 0, y: -8, filter: 'blur(3px)' }}
                 transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1] }}
               >
-                <div className="radar-score">
-                  <AnimatedScore value={activeDomain.score} />
-                  <small>/100</small>
-                </div>
-
                 <h3>{lang === 'fr' ? activeDomain.fr : activeDomain.en}</h3>
 
                 <p>{lang === 'fr' ? activeDomain.descriptionFr : activeDomain.descriptionEn}</p>
@@ -374,6 +344,18 @@ export default function RadarSkills() {
               </motion.div>
             </AnimatePresence>
 
+            <div
+              className={`radar-progress-track radar-progress-${activeDomain.accent}`}
+              aria-label={`${lang === 'fr' ? activeDomain.fr : activeDomain.en} — ${activeDomain.score}/100`}
+            >
+              <motion.div
+                className="radar-progress-fill"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: activeDomain.score / 100 }}
+                transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+              />
+            </div>
+
             <div className="radar-domain-buttons">
               {DOMAINS.map((domain, index) => (
                 <button
@@ -383,7 +365,6 @@ export default function RadarSkills() {
                   onClick={() => setActiveIndex(index)}
                 >
                   <span>{lang === 'fr' ? domain.fr : domain.en}</span>
-                  <small>{domain.score}</small>
                 </button>
               ))}
             </div>

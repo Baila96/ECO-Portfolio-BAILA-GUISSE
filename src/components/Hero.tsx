@@ -158,7 +158,7 @@ export default function Hero() {
       lang === 'fr'
         ? 'De l’étude technique au suivi de chantier : je pilote des projets photovoltaïques dans leur intégralité.'
         : 'From technical design to site follow-up: I manage photovoltaic projects from start to finish.',
-    location: lang === 'fr' ? 'Avignon — mobilité France entière' : 'Avignon — mobile across France',
+    location: lang === 'fr' ? 'Limoges — mobilité France entière' : 'Limoges — mobile across France',
     permis: lang === 'fr' ? 'Permis B — véhiculé' : 'Driving licence — own vehicle',
   }
 
@@ -230,15 +230,15 @@ export default function Hero() {
               lang === 'fr'
                 ? [
                     'Système en ligne',
-                    'Disponible pour alternance',
-                    'Gestion de projets PV active',
-                    'Suivi de chantier en cours',
+                    'Licence Pro obtenue avec mention Bien (15,65/20)',
+                    'Ouvert à un CDI ou une alternance',
+                    'Gestion de projet PV',
                   ]
                 : [
                     'System online',
-                    'Available for work-study opportunities',
-                    'Active PV project management',
-                    'Site monitoring in progress',
+                    'Vocational Bachelor\u2019s — Honours (15.65/20)',
+                    'Open to full-time or work-study roles',
+                    'PV project management',
                   ]
             }
           />

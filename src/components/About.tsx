@@ -18,7 +18,7 @@ export default function About() {
   return (
     <section id="profil" className="section">
       <div className="container">
-        <SectionTitle eyebrow={lang === 'fr' ? '01 — Profil' : '01 — Profile'} title={lang === 'fr' ? 'Futur ingénieur électricité,' : 'Future electrical engineer,'} accent={lang === 'fr' ? 'spécialisé photovoltaïque' : 'specialised in photovoltaics'} />
+        <SectionTitle eyebrow={lang === 'fr' ? '01 — Profil' : '01 — Profile'} title={lang === 'fr' ? 'Expertise technique et gestion de projets' : 'Technical expertise and project management'} accent={lang === 'fr' ? 'photovoltaïques' : 'in photovoltaics'} />
 
         <div className="about-grid">
           <motion.p className="about-text" initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.6 }}>{profileText}</motion.p>
@@ -47,7 +47,7 @@ export default function About() {
             {education.map((e) => (
               <div key={e.degree} className="timeline-item">
                 <span className="timeline-dot" />
-                <div><div className="timeline-degree">{e.degree}</div><div className="timeline-school mono">{e.school} — {e.period}</div></div>
+                <div><div className="timeline-degree">{e.degree}</div><div className="timeline-school mono">{e.school ? `${e.school} — ${e.period}` : e.period}</div></div>
               </div>
             ))}
           </div>
