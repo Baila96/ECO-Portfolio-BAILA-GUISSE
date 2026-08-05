@@ -46,7 +46,7 @@ export const profileText = `Chargé d'affaires photovoltaïque, je pilote des pr
 
 export const education = [
   {
-    degree: "Master MLAI — Smart Energy",
+    degree: "Master MLAI - Smart Energy",
     school: "",
     period: "2026 – 2027",
   },
@@ -61,7 +61,7 @@ export const education = [
     period: "2019 – 2021",
   },
   {
-    degree: "L2 Électronique — EEA",
+    degree: "L2 Électronique - EEA",
     school: "Université de Lorraine, Metz",
     period: "2018 – 2019",
   },
@@ -76,10 +76,11 @@ export const toolGroups = [
   {
     title: "Étude & Dimensionnement PV",
     tools: [
-      "Archélios Pro — simulation, plugin BIM Revit / SketchUp",
-      "PVsyst — simulation de production détaillée",
-      "PVGIS — vérification croisée de production",
-      "Solteo — dimensionnement, proposition commerciale, visite technique & DP",
+      "Archélios Pro - simulation, plugin BIM Revit / SketchUp",
+      "PVsyst - simulation de production détaillée",
+      "PVGIS - vérification croisée de production",
+      "Solteo - dimensionnement, proposition commerciale, visite technique & DP",
+      "Caneco - dimensionnement électrique, conformité UTE C 15-712-1",
       "Calculateurs ESDEC / K2 Base / SunBallast",
       "Bilan des puissances & câblage AC/DC",
     ],
@@ -87,8 +88,8 @@ export const toolGroups = [
   {
     title: "CAO & Modélisation",
     tools: [
-      "AutoCAD — dossiers d\u2019exécution (EXE)",
-      "Revit — modélisation BIM du bâtiment",
+      "AutoCAD - dossiers d\u2019exécution (EXE)",
+      "Revit - modélisation BIM du bâtiment",
       "SketchUp, Matlab",
       "Plans de structure et fixation (toiture, sol)",
     ],
@@ -121,9 +122,9 @@ export const languages = [
 ];
 
 export const certifications = [
-  "SSIAP 1 — Sécurité Incendie",
-  "CQP — Certification de Qualification Professionnelle",
-  "SST — Sauveteur Secouriste du Travail",
+  "SSIAP 1 - Sécurité Incendie",
+  "CQP - Certification de Qualification Professionnelle",
+  "SST - Sauveteur Secouriste du Travail",
   "Habilitable électrique : B1V, B2V, BR",
 ];
 
@@ -136,7 +137,7 @@ export type Experience = {
 
 export const experiences: Experience[] = [
   {
-    title: "Chargé d'Affaires Photovoltaïque — Stage",
+    title: "Chargé d'Affaires Photovoltaïque - Stage",
     company: "Sud Concept Énergie, Vedène (84)",
     period: "Mars 2026 – Juillet 2026",
     bullets: [
@@ -150,19 +151,19 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    title: "Projet Professionnel — Centrale PV 37 kWc (Carrefour Market)",
+    title: "Projet Professionnel - Centrale PV 37 kWc (Carrefour Market)",
     company: "Université de Limoges",
     period: "Oct. 2025 – Déc. 2025",
     bullets: [
       "Modélisation complète du bâtiment (2 205 m²) sous Revit",
-      "Conception d\u2019une centrale de 168 panneaux Trina Solar — production calculée : 45 500 kWh/an",
+      "Conception d\u2019une centrale de 168 panneaux Trina Solar - production calculée : 45 500 kWh/an",
       "Export BIM vers Archélios Pro, choix onduleur SMA 33 kW, étude économique validée",
       "Calcul du Performance Ratio (PR) par modèle de pertes multiplicatif",
     ],
   },
   {
     title:
-      "Projet Professionnel — Concentrateurs Solaires & Conversion Thermomécanique",
+      "Projet Professionnel - Concentrateurs Solaires & Conversion Thermomécanique",
     company: "Université de Limoges",
     period: "Oct. 2025 – En cours",
     bullets: [
@@ -172,7 +173,7 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    title: "Stage de Recherche — Production de Vapeur par Héliostat",
+    title: "Stage de Recherche - Production de Vapeur par Héliostat",
     company: "Université Paul Sabatier, Toulouse",
     period: "Mars 2021 – Juil. 2021",
     bullets: [
@@ -235,7 +236,7 @@ export type GalleryItem = {
 export const galleryItems: GalleryItem[] = [
   {
     slug: "belmont-agroparc-44kwc",
-    title: "Centrale toiture 44,1 kWc — Groupe Belmont",
+    title: "Centrale toiture 44,1 kWc - Groupe Belmont",
     meta: "Agroparc, Avignon",
     category: "Installation",
     description:
@@ -287,7 +288,7 @@ export const galleryItems: GalleryItem[] = [
       {
         icon: "energy",
         value: "55 655 kWh/an",
-        label: "Production moyenne sur 20 ans — pic en juillet à 7 952 kWh",
+        label: "Production moyenne sur 20 ans - pic en juillet à 7 952 kWh",
       },
       {
         icon: "performance",
@@ -321,19 +322,19 @@ export const galleryItems: GalleryItem[] = [
         },
       ],
       after: [
-        { src: "/gallery/belmont1.jpg", caption: "Après installation — Belmont 1" },
-        { src: "/gallery/belmont2.jpg", caption: "Après installation — Belmont 2" },
-        { src: "/gallery/belmont3.jpg", caption: "Après installation — Belmont 3" },
-        { src: "/gallery/belmont4.jpg", caption: "Après installation — Belmont 4" },
-        { src: "/gallery/belmont5.jpg", caption: "Après installation — Belmont 5" },
+        { src: "/gallery/belmont1.jpg", caption: "Après installation - Belmont 1" },
+        { src: "/gallery/belmont2.jpg", caption: "Après installation - Belmont 2" },
+        { src: "/gallery/belmont3.jpg", caption: "Après installation - Belmont 3" },
+        { src: "/gallery/belmont4.jpg", caption: "Après installation - Belmont 4" },
+        { src: "/gallery/belmont5.jpg", caption: "Après installation - Belmont 5" },
         { src: "/gallery/VideoBelmont.mp4", caption: "VideoBelmont", mediaType: "video" },
       ],
     },
   },
   {
     slug: "centrale-residentielle-6kwc-batterie-virtuelle",
-    title: "Centrale résidentielle 6 kWc — Batterie virtuelle",
-    meta: "Le Thor (84) — autoconsommation Urban Solar",
+    title: "Centrale résidentielle 6 kWc - Batterie virtuelle",
+    meta: "Le Thor (84) - autoconsommation Urban Solar",
     category: "Installation",
     description:
       "12 panneaux JinkoSolar Tiger Neo N-Type 500 Wc, micro-onduleurs ATMOCE MI-1000 et batterie virtuelle Urban Solar Energy.",
@@ -371,7 +372,7 @@ export const galleryItems: GalleryItem[] = [
       { label: "Production annuelle estimée", value: "9 102 kWh/an" },
       { label: "Consommation du foyer", value: "8 032 kWh/an" },
       { label: "Panneaux", value: "12 × JinkoSolar Tiger Neo N-Type 500 Wc" },
-      { label: "Onduleurs", value: "6 × ATMOCE MI-1000 — 1000 VA" },
+      { label: "Onduleurs", value: "6 × ATMOCE MI-1000 - 1000 VA" },
       { label: "Gestion énergie", value: "Shelly Pro EM-50" },
       { label: "Orientation / inclinaison", value: "Sud / 18°" },
       {
@@ -440,8 +441,8 @@ export const galleryItems: GalleryItem[] = [
 
   {
     slug: "centrale-residentielle-triphasee-784kwc-velleron",
-    title: "Centrale résidentielle triphasée 7,84 kWc — Batterie virtuelle",
-    meta: "Velleron (84) — autoconsommation Urban Solar",
+    title: "Centrale résidentielle triphasée 7,84 kWc - Batterie virtuelle",
+    meta: "Velleron (84) - autoconsommation Urban Solar",
     category: "Installation",
     description:
       "16 panneaux AIKO Neostar 3P+54 bifaciaux bi-verre 490 Wc, micro-onduleurs ATMOCE MI-1000 et batterie virtuelle Urban Solar Energy.",
@@ -481,9 +482,9 @@ export const galleryItems: GalleryItem[] = [
         label: "Panneaux",
         value: "16 × AIKO Neostar 3P+54 bifacial bi-verre 490 Wc",
       },
-      { label: "Onduleurs", value: "8 × ATMOCE MI-1000 — 1000 VA" },
+      { label: "Onduleurs", value: "8 × ATMOCE MI-1000 - 1000 VA" },
       { label: "Coffret de protection", value: "M-Combiner MC100-T triphasé" },
-      { label: "Compteur", value: "18 kVA triphasé — HP/HC" },
+      { label: "Compteur", value: "18 kVA triphasé - HP/HC" },
       { label: "Orientation / inclinaison", value: "Ouest / 18°" },
       {
         label: "Raccordement",
@@ -554,17 +555,17 @@ export const galleryItems: GalleryItem[] = [
 
   {
     slug: "centrale-residentielle-588kwc-toit-plat-sorgues",
-    title: "Centrale résidentielle toit plat 5,88 kWc — Batterie virtuelle",
-    meta: "Sorgues (84) — autoconsommation Urban Solar",
+    title: "Centrale résidentielle toit plat 5,88 kWc - Batterie virtuelle",
+    meta: "Sorgues (84) - autoconsommation Urban Solar",
     category: "Installation",
     description:
       "12 modules bifaciaux AIKO Neostar 490 Wc, 12 micro-onduleurs Enphase IQ8P, structure Sun Ballast toit plat et batterie virtuelle Urban Solar Energy.",
     context:
       "Ce projet a été réalisé pour un client particulier basé à Sorgues (84700). Le foyer affichait une consommation électrique annuelle de 7 871 kWh (installation monophasée, compteur 6 kVA en option Base). L'objectif était de concevoir un système photovoltaïque performant capable de couvrir la totalité des besoins énergétiques de l'habitation, en s'adaptant à une toiture présentant une très faible pente (3°). Pour éviter toute perte d'énergie, le client a opté pour un système d'autoconsommation couplé à une solution de batterie virtuelle.",
     mission: [
-      "Analyse et calepinage : étude du profil de consommation et conception de l'implantation avec une orientation Est-Ouest sur la toiture à 3° d'inclinaison",
-      "Sélection du matériel : prescription d'un matériel de très haute performance, associant des modules bifaciaux AIKO Neostar (490 Wc) et la nouvelle génération de micro-onduleurs Enphase IQ8P",
-      "Ingénierie du stockage : modélisation de la production pour dimensionner la part d'autoconsommation directe et évaluer le volume de surplus à confier au système de stockage virtuel d'Urban Solar Energy",
+      "Participation à la pose des panneaux photovoltaïques sur toiture plate, en configuration Est-Ouest à 3° d'inclinaison",
+      "Intégration des modules au système de fixation lesté Sun Ballast, sans perforation de l'étanchéité",
+      "Raccordement des micro-onduleurs Enphase IQ8P et contrôle de la bonne mise en service de l'installation",
     ],
     challenges: [
       {
@@ -591,15 +592,15 @@ export const galleryItems: GalleryItem[] = [
       { label: "Production annuelle estimée", value: "7 984 kWh/an" },
       { label: "Consommation du foyer", value: "7 871 kWh/an" },
       { label: "Panneaux", value: "12 × AIKO Neostar bifaciaux 490 Wc" },
-      { label: "Onduleurs", value: "12 × Enphase IQ8P-72-2-INT — 0,48 kVA" },
-      { label: "Structure", value: "Sun Ballast — toit plat, Est-Ouest" },
+      { label: "Onduleurs", value: "12 × Enphase IQ8P-72-2-INT - 0,48 kVA" },
+      { label: "Structure", value: "Sun Ballast - toit plat, Est-Ouest" },
       { label: "Orientation / inclinaison", value: "Est-Ouest / 3°" },
       {
         label: "Raccordement",
         value: "Autoconsommation + batterie virtuelle Urban Solar",
       },
       { label: "Taux d\u2019autoproduction", value: "100 %" },
-      { label: "TVA", value: "5,5 % — rénovation énergétique" },
+      { label: "TVA", value: "5,5 % - rénovation énergétique" },
     ],
     results: [
       "Production annuelle estimée à 7 984 kWh, couvrant l'intégralité de la consommation du foyer",
@@ -633,7 +634,7 @@ export const galleryItems: GalleryItem[] = [
         { src: "/gallery/DUF3.JPG", caption: "Pendant / après installation" },
         { src: "/gallery/DUF4.JPG", caption: "Pendant / après installation" },
         { src: "/gallery/DUF5.JPG", caption: "Pendant / après installation" },
-        { src: "/gallery/DUF6.MOV", caption: "Pendant / après installation — vidéo", mediaType: "video" },
+        { src: "/gallery/DUF6.MOV", caption: "Pendant / après installation - vidéo", mediaType: "video" },
       ],
     },
   },
@@ -641,7 +642,7 @@ export const galleryItems: GalleryItem[] = [
   {
     slug: "integration-stockage-enphase-iq-battery-5p",
     title: "Intégration d'un Système de Stockage Intelligent Enphase (IQ Battery 5P)",
-    meta: "Installation batterie — passerelle de communication Enphase",
+    meta: "Installation batterie - passerelle de communication Enphase",
     category: "Installation",
     description:
       "Installation d’une batterie Enphase IQ Battery 5P, d’une passerelle Envoy-S Metered et d’une communication filaire dédiée pour optimiser l’autoconsommation.",
@@ -680,8 +681,8 @@ export const galleryItems: GalleryItem[] = [
       { label: "Micro-onduleurs intégrés", value: "6 × IQ8D-BAT" },
       { label: "Architecture", value: "Stockage physique à couplage AC" },
       { label: "Passerelle", value: "Envoy-S Metered ENV-S-WB-230-F" },
-      { label: "Communication", value: "Communications Kit 2 INT — filaire" },
-      { label: "Chimie batterie", value: "LFP — Lithium Fer Phosphate" },
+      { label: "Communication", value: "Communications Kit 2 INT - filaire" },
+      { label: "Chimie batterie", value: "LFP - Lithium Fer Phosphate" },
       { label: "Supervision", value: "Enphase Enlighten" },
     ],
     results: [
@@ -730,8 +731,8 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     slug: "etude-residentielle-3kwc-le-pontet",
-    title: "Centrale résidentielle 3 kWc — Batterie virtuelle",
-    meta: "Le Pontet (84) — autoconsommation Urban Solar",
+    title: "Centrale résidentielle 3 kWc - Batterie virtuelle",
+    meta: "Le Pontet (84) - autoconsommation Urban Solar",
     category: "Installation",
     description:
       "6 panneaux DMEGC Solar bifaciaux 500 Wc, micro-onduleurs ATMOCE MI-1000 et batterie virtuelle Urban Solar Energy.",
@@ -767,7 +768,7 @@ export const galleryItems: GalleryItem[] = [
       { label: "Production annuelle estimée", value: "4 374 kWh/an" },
       { label: "Consommation du foyer", value: "5 373 kWh/an" },
       { label: "Panneaux", value: "6 × DMEGC Solar Type N bifacial 500 Wc" },
-      { label: "Onduleurs", value: "3 × ATMOCE MI-1000 — 1000 VA" },
+      { label: "Onduleurs", value: "3 × ATMOCE MI-1000 - 1000 VA" },
       { label: "Gestion énergie", value: "Shelly Pro EM-50" },
       { label: "Orientation / inclinaison", value: "Sud-Est / 18°" },
       {
@@ -820,8 +821,8 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     slug: "maintenance-nettoyage-16-panneaux-vedene",
-    title: "Maintenance photovoltaïque — Nettoyage de 16 panneaux",
-    meta: "Vedène (84) — restauration du rendement",
+    title: "Maintenance photovoltaïque - Nettoyage de 16 panneaux",
+    meta: "Vedène (84) - restauration du rendement",
     category: "SAV",
     illustration: "cleaning",
     description:
@@ -848,7 +849,7 @@ export const galleryItems: GalleryItem[] = [
       },
     ],
     specs: [
-      { label: "Type d'intervention", value: "Maintenance préventive — nettoyage PV" },
+      { label: "Type d'intervention", value: "Maintenance préventive - nettoyage PV" },
       { label: "Localisation", value: "Vedène (84)" },
       { label: "Nombre de panneaux", value: "16 modules photovoltaïques" },
       { label: "Méthode", value: "Eau pure + brosse télescopique souple" },
@@ -893,16 +894,16 @@ export const galleryItems: GalleryItem[] = [
         { src: "/gallery/ApNet2.jpg", caption: "Après nettoyage" },
         { src: "/gallery/ApNet3.jpg", caption: "Après nettoyage" },
         { src: "/gallery/ApNet4.jpg", caption: "Après nettoyage" },
-        { src: "/gallery/ApNet5.MOV", caption: "Après nettoyage — vidéo", mediaType: "video" },
-        { src: "/gallery/ApNet6.MOV", caption: "Après nettoyage — vidéo", mediaType: "video" },
+        { src: "/gallery/ApNet5.MOV", caption: "Après nettoyage - vidéo", mediaType: "video" },
+        { src: "/gallery/ApNet6.MOV", caption: "Après nettoyage - vidéo", mediaType: "video" },
       ],
     },
   },
 
   {
     slug: "etude-integration-irve-bornes-recharge",
-    title: "Étude et intégration IRVE — Bornes de recharge",
-    meta: "Infrastructure de recharge — dimensionnement et gestion dynamique",
+    title: "Étude et intégration IRVE - Bornes de recharge",
+    meta: "Infrastructure de recharge - dimensionnement et gestion dynamique",
     category: "Étude",
     illustration: "ev-charging",
     description:
@@ -994,7 +995,7 @@ export const contact = {
 };
 
 // ─────────────────────────────────────────────────────────────
-// Compatibilité sélecteur FR/EN — données traduites
+// Compatibilité sélecteur FR/EN - données traduites
 // ─────────────────────────────────────────────────────────────
 
 export type Lang = 'fr' | 'en'
@@ -1039,22 +1040,22 @@ const profileTextEn =
 
 const educationEn = [
   {
-    degree: "Master MLAI — Smart Energy",
+    degree: "Master MLAI - Smart Energy",
     school: "",
     period: "2026 – 2027",
   },
   {
-    degree: "Professional Bachelor — Renewable Energy",
+    degree: "Professional Bachelor - Renewable Energy",
     school: "University of Limoges",
     period: "2025 – 2026",
   },
   {
-    degree: "Bachelor 3 — Energy Mechanics",
+    degree: "Bachelor 3 - Energy Mechanics",
     school: "Paul Sabatier University, Toulouse III",
     period: "2019 – 2021",
   },
   {
-    degree: "Bachelor 2 — Electronics / EEA",
+    degree: "Bachelor 2 - Electronics / EEA",
     school: "University of Lorraine, Metz",
     period: "2018 – 2019",
   },
@@ -1069,10 +1070,11 @@ const toolGroupsEn = [
   {
     title: "PV studies & sizing",
     tools: [
-      "Archélios Pro — simulation, BIM plugin for Revit / SketchUp",
-      "PVsyst — detailed production simulation",
-      "PVGIS — production cross-checking",
-      "Solteo — sizing, commercial proposal, site visit & permitting",
+      "Archélios Pro - simulation, BIM plugin for Revit / SketchUp",
+      "PVsyst - detailed production simulation",
+      "PVGIS - production cross-checking",
+      "Solteo - sizing, commercial proposal, site visit & permitting",
+      "Caneco - electrical sizing, UTE C 15-712-1 compliance",
       "ESDEC / K2 Base / SunBallast calculators",
       "Power balance & AC/DC cabling",
     ],
@@ -1080,8 +1082,8 @@ const toolGroupsEn = [
   {
     title: "CAD & modelling",
     tools: [
-      "AutoCAD — execution drawings",
-      "Revit — building BIM modelling",
+      "AutoCAD - execution drawings",
+      "Revit - building BIM modelling",
       "SketchUp, Matlab",
       "Structure and mounting plans for roofs and ground-mounted systems",
     ],
@@ -1114,15 +1116,15 @@ const languagesEn = [
 ]
 
 const certificationsEn = [
-  "SSIAP 1 — Fire safety",
-  "CQP — Professional qualification certificate",
-  "SST — Workplace first-aider",
+  "SSIAP 1 - Fire safety",
+  "CQP - Professional qualification certificate",
+  "SST - Workplace first-aider",
   "Electrical authorisation eligible: B1V, B2V, BR",
 ]
 
 const experiencesEn: Experience[] = [
   {
-    title: "Photovoltaic Project Engineer — Internship",
+    title: "Photovoltaic Project Engineer - Internship",
     company: "Sud Concept Énergie, Vedène (84)",
     period: "Mar. 2026 – Aug. 2026",
     bullets: [
@@ -1136,7 +1138,7 @@ const experiencesEn: Experience[] = [
     ],
   },
   {
-    title: "Professional Project — 37 kWp PV plant (Carrefour Market)",
+    title: "Professional Project - 37 kWp PV plant (Carrefour Market)",
     company: "University of Limoges",
     period: "Oct. 2025 – Dec. 2025",
     bullets: [
@@ -1147,7 +1149,7 @@ const experiencesEn: Experience[] = [
     ],
   },
   {
-    title: "Professional Project — Solar Concentrators & Thermomechanical Conversion",
+    title: "Professional Project - Solar Concentrators & Thermomechanical Conversion",
     company: "University of Limoges",
     period: "Oct. 2025 – ongoing",
     bullets: [
@@ -1157,7 +1159,7 @@ const experiencesEn: Experience[] = [
     ],
   },
   {
-    title: "Research Internship — Steam Production with Heliostats",
+    title: "Research Internship - Steam Production with Heliostats",
     company: "Paul Sabatier University, Toulouse",
     period: "Mar. 2021 – Jul. 2021",
     bullets: [
@@ -1170,7 +1172,7 @@ const experiencesEn: Experience[] = [
 
 const projectTranslations: Record<string, Partial<GalleryItem>> = {
   "belmont-agroparc-44kwc": {
-    title: "44.1 kWp rooftop PV plant — Groupe Belmont",
+    title: "44.1 kWp rooftop PV plant - Groupe Belmont",
     meta: "Agroparc, Avignon",
     description:
       "90 AIKO Neostar 3P+ 490 Wp modules, Huawei SUN2000-50KTL-M3 inverter and ESDEC FlatFix Fusion East-West mounting system.",
@@ -1218,7 +1220,7 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
       "Technical file compliant with NF C 15-100 / UTE C 15-712-1",
     ],
     resultStats: [
-      { icon: "energy", value: "55,655 kWh/year", label: "20-year average production — July peak at 7,952 kWh" },
+      { icon: "energy", value: "55,655 kWh/year", label: "20-year average production - July peak at 7,952 kWh" },
       { icon: "performance", value: "38.5% / 54.3%", label: "Self-sufficiency rate / direct self-consumption rate" },
       { icon: "finance", value: "< 6 years", label: "Return on investment" },
       { icon: "environment", value: "1.1 t CO₂/year", label: "22 tonnes avoided over 20 years" },
@@ -1230,19 +1232,19 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
         { src: "/gallery/vt-3.jpg", caption: "Roof and existing obstacles" },
       ],
       after: [
-        { src: "/gallery/belmont1.jpg", caption: "After installation — Belmont 1" },
-        { src: "/gallery/belmont2.jpg", caption: "After installation — Belmont 2" },
-        { src: "/gallery/belmont3.jpg", caption: "After installation — Belmont 3" },
-        { src: "/gallery/belmont4.jpg", caption: "After installation — Belmont 4" },
-        { src: "/gallery/belmont5.jpg", caption: "After installation — Belmont 5" },
+        { src: "/gallery/belmont1.jpg", caption: "After installation - Belmont 1" },
+        { src: "/gallery/belmont2.jpg", caption: "After installation - Belmont 2" },
+        { src: "/gallery/belmont3.jpg", caption: "After installation - Belmont 3" },
+        { src: "/gallery/belmont4.jpg", caption: "After installation - Belmont 4" },
+        { src: "/gallery/belmont5.jpg", caption: "After installation - Belmont 5" },
         { src: "/gallery/VideoBelmont.mp4", caption: "VideoBelmont", mediaType: "video" },
       ],
     },
   },
 
   "centrale-residentielle-6kwc-batterie-virtuelle": {
-    title: "6 kWp residential PV plant — Virtual battery",
-    meta: "Le Thor (84) — Urban Solar self-consumption",
+    title: "6 kWp residential PV plant - Virtual battery",
+    meta: "Le Thor (84) - Urban Solar self-consumption",
     description:
       "12 JinkoSolar Tiger Neo N-Type 500 Wp modules, ATMOCE MI-1000 microinverters and Urban Solar Energy virtual battery.",
     context:
@@ -1279,7 +1281,7 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
       { label: "Estimated annual production", value: "9,102 kWh/year" },
       { label: "Household consumption", value: "8,032 kWh/year" },
       { label: "Modules", value: "12 × JinkoSolar Tiger Neo N-Type 500 Wp" },
-      { label: "Inverters", value: "6 × ATMOCE MI-1000 — 1000 VA" },
+      { label: "Inverters", value: "6 × ATMOCE MI-1000 - 1000 VA" },
       { label: "Energy management", value: "Shelly Pro EM-50" },
       { label: "Orientation / tilt", value: "South / 18°" },
       { label: "Grid connection", value: "Self-consumption + Urban Solar virtual battery" },
@@ -1310,8 +1312,8 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
   },
 
   "centrale-residentielle-triphasee-784kwc-velleron": {
-    title: "7.84 kWp three-phase residential PV plant — Virtual battery",
-    meta: "Velleron (84) — Urban Solar self-consumption",
+    title: "7.84 kWp three-phase residential PV plant - Virtual battery",
+    meta: "Velleron (84) - Urban Solar self-consumption",
     description:
       "16 AIKO Neostar 3P+54 bifacial dual-glass 490 Wp modules, ATMOCE MI-1000 microinverters and Urban Solar Energy virtual battery.",
     context:
@@ -1347,9 +1349,9 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
       { label: "Estimated annual production", value: "11,161 kWh/year" },
       { label: "Household consumption", value: "8,544 kWh/year" },
       { label: "Modules", value: "16 × AIKO Neostar 3P+54 bifacial dual-glass 490 Wp" },
-      { label: "Inverters", value: "8 × ATMOCE MI-1000 — 1000 VA" },
+      { label: "Inverters", value: "8 × ATMOCE MI-1000 - 1000 VA" },
       { label: "Protection box", value: "M-Combiner MC100-T three-phase" },
-      { label: "Meter", value: "18 kVA three-phase — peak/off-peak tariff" },
+      { label: "Meter", value: "18 kVA three-phase - peak/off-peak tariff" },
       { label: "Orientation / tilt", value: "West / 18°" },
       { label: "Grid connection", value: "Self-consumption + Urban Solar virtual battery" },
       { label: "Estimated annual surplus", value: "7,890 kWh/year" },
@@ -1382,16 +1384,16 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
   },
 
   "centrale-residentielle-588kwc-toit-plat-sorgues": {
-    title: "5.88 kWp residential flat-roof PV plant — Virtual battery",
-    meta: "Sorgues (84) — Urban Solar self-consumption",
+    title: "5.88 kWp residential flat-roof PV plant - Virtual battery",
+    meta: "Sorgues (84) - Urban Solar self-consumption",
     description:
       "12 AIKO Neostar bifacial 490 Wp modules, 12 Enphase IQ8P microinverters, Sun Ballast flat-roof mounting and Urban Solar Energy virtual battery.",
     context:
       "This project was carried out for a private client based in Sorgues (84700). The household had an annual electricity consumption of 7,871 kWh (single-phase installation, 6 kVA meter under the Base tariff). The goal was to design a high-performance photovoltaic system able to cover the household's full energy needs, adapting to a roof with a very shallow pitch (3°). To avoid any energy loss, the client chose a self-consumption system combined with a virtual battery solution.",
     mission: [
-      "Analysis and layout: study of the consumption profile and design of the East-West layout on the 3°-pitch roof",
-      "Equipment selection: prescription of high-performance equipment, combining AIKO Neostar bifacial modules (490 Wp) with the new generation of Enphase IQ8P microinverters",
-      "Storage engineering: modelling of production to size the direct self-consumption share and evaluate the surplus volume entrusted to the Urban Solar Energy virtual storage system",
+      "Assisted with the installation of the PV panels on the flat roof, in an East-West layout with a 3° tilt",
+      "Integrated the modules into the Sun Ballast weighted mounting system, without penetrating the waterproofing",
+      "Connected the Enphase IQ8P microinverters and checked the correct commissioning of the system",
     ],
     challenges: [
       {
@@ -1418,12 +1420,12 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
       { label: "Estimated annual production", value: "7,984 kWh/year" },
       { label: "Household consumption", value: "7,871 kWh/year" },
       { label: "Modules", value: "12 × AIKO Neostar bifacial 490 Wp" },
-      { label: "Inverters", value: "12 × Enphase IQ8P-72-2-INT — 0.48 kVA" },
-      { label: "Mounting system", value: "Sun Ballast — flat roof, East-West" },
+      { label: "Inverters", value: "12 × Enphase IQ8P-72-2-INT - 0.48 kVA" },
+      { label: "Mounting system", value: "Sun Ballast - flat roof, East-West" },
       { label: "Orientation / tilt", value: "East-West / 3°" },
       { label: "Grid connection", value: "Self-consumption + Urban Solar virtual battery" },
       { label: "Self-sufficiency rate", value: "100%" },
-      { label: "VAT", value: "5.5% — residential energy renovation" },
+      { label: "VAT", value: "5.5% - residential energy renovation" },
     ],
     results: [
       "Estimated annual production of 7,984 kWh, covering the household's full consumption",
@@ -1457,14 +1459,14 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
         { src: "/gallery/DUF3.JPG", caption: "During / after installation" },
         { src: "/gallery/DUF4.JPG", caption: "During / after installation" },
         { src: "/gallery/DUF5.JPG", caption: "During / after installation" },
-        { src: "/gallery/DUF6.MOV", caption: "During / after installation — video", mediaType: "video" },
+        { src: "/gallery/DUF6.MOV", caption: "During / after installation - video", mediaType: "video" },
       ],
     },
   },
 
   "integration-stockage-enphase-iq-battery-5p": {
     title: "Integration of an Enphase IQ Battery 5P smart storage system",
-    meta: "Battery installation — Enphase communication gateway",
+    meta: "Battery installation - Enphase communication gateway",
     description:
       "Installation of an Enphase IQ Battery 5P, an Envoy-S Metered gateway and a dedicated wired communication system to optimise self-consumption.",
     context:
@@ -1502,8 +1504,8 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
       { label: "Integrated microinverters", value: "6 × IQ8D-BAT" },
       { label: "Architecture", value: "AC-coupled physical storage" },
       { label: "Gateway", value: "Envoy-S Metered ENV-S-WB-230-F" },
-      { label: "Communication", value: "Communications Kit 2 INT — wired" },
-      { label: "Battery chemistry", value: "LFP — Lithium Iron Phosphate" },
+      { label: "Communication", value: "Communications Kit 2 INT - wired" },
+      { label: "Battery chemistry", value: "LFP - Lithium Iron Phosphate" },
       { label: "Monitoring", value: "Enphase Enlighten" },
     ],
     results: [
@@ -1536,8 +1538,8 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
   },
 
   "etude-residentielle-3kwc-le-pontet": {
-    title: "3 kWp residential PV plant — Virtual battery",
-    meta: "Le Pontet (84) — Urban Solar self-consumption",
+    title: "3 kWp residential PV plant - Virtual battery",
+    meta: "Le Pontet (84) - Urban Solar self-consumption",
     description:
       "6 DMEGC Solar bifacial 500 Wp modules, ATMOCE MI-1000 microinverters and Urban Solar Energy virtual battery.",
     context:
@@ -1572,7 +1574,7 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
       { label: "Estimated annual production", value: "4,374 kWh/year" },
       { label: "Household consumption", value: "5,373 kWh/year" },
       { label: "Modules", value: "6 × DMEGC Solar N-Type bifacial 500 Wp" },
-      { label: "Inverters", value: "3 × ATMOCE MI-1000 — 1000 VA" },
+      { label: "Inverters", value: "3 × ATMOCE MI-1000 - 1000 VA" },
       { label: "Energy management", value: "Shelly Pro EM-50" },
       { label: "Orientation / tilt", value: "South-East / 18°" },
       { label: "Grid connection", value: "Self-consumption + Urban Solar virtual battery" },
@@ -1606,8 +1608,8 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
   },
 
   "maintenance-nettoyage-16-panneaux-vedene": {
-    title: "PV maintenance — Cleaning of 16 modules",
-    meta: "Vedène (84) — yield recovery",
+    title: "PV maintenance - Cleaning of 16 modules",
+    meta: "Vedène (84) - yield recovery",
     description:
       "Preventive cleaning of a 16-module photovoltaic system to remove soiling, prevent hotspots and restore performance.",
     context:
@@ -1632,7 +1634,7 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
       },
     ],
     specs: [
-      { label: "Intervention type", value: "Preventive maintenance — PV cleaning" },
+      { label: "Intervention type", value: "Preventive maintenance - PV cleaning" },
       { label: "Location", value: "Vedène (84)" },
       { label: "Number of modules", value: "16 photovoltaic modules" },
       { label: "Method", value: "Pure water + soft telescopic brush" },
@@ -1661,15 +1663,15 @@ const projectTranslations: Record<string, Partial<GalleryItem>> = {
         { src: "/gallery/ApNet2.jpg", caption: "After cleaning" },
         { src: "/gallery/ApNet3.jpg", caption: "After cleaning" },
         { src: "/gallery/ApNet4.jpg", caption: "After cleaning" },
-        { src: "/gallery/ApNet5.MOV", caption: "After cleaning — video", mediaType: "video" },
-        { src: "/gallery/ApNet6.MOV", caption: "After cleaning — video", mediaType: "video" },
+        { src: "/gallery/ApNet5.MOV", caption: "After cleaning - video", mediaType: "video" },
+        { src: "/gallery/ApNet6.MOV", caption: "After cleaning - video", mediaType: "video" },
       ],
     },
   },
 
   "etude-integration-irve-bornes-recharge": {
     title: "EV charging infrastructure study and integration",
-    meta: "Charging infrastructure — sizing and dynamic load management",
+    meta: "Charging infrastructure - sizing and dynamic load management",
     description:
       "Complete technical study and integration of EV charging stations, including electrical protections, dynamic load management and Autel MaxiCharger solutions.",
     context:

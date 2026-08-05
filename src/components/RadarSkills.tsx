@@ -79,8 +79,8 @@ const DOMAINS: SkillDomain[] = [
       'Maîtrise des outils métiers utilisés pour les études photovoltaïques, le calepinage, la modélisation, les plans techniques et le suivi commercial des projets.',
     descriptionEn:
       'Professional use of tools dedicated to PV studies, layouts, modelling, technical drawings and commercial project follow-up.',
-    highlightsFr: ['ARCHELIOS PRO', 'PVSYST', 'AUTOCAD', 'REVIT', 'SKETCHUP', 'SOLTEO'],
-    highlightsEn: ['ARCHELIOS PRO', 'PVSYST', 'AUTOCAD', 'REVIT', 'SKETCHUP', 'SOLTEO'],
+    highlightsFr: ['ARCHELIOS PRO', 'PVSYST', 'AUTOCAD', 'REVIT', 'SKETCHUP', 'SOLTEO', 'CANECO'],
+    highlightsEn: ['ARCHELIOS PRO', 'PVSYST', 'AUTOCAD', 'REVIT', 'SKETCHUP', 'SOLTEO', 'CANECO'],
   },
 ]
 
@@ -162,7 +162,7 @@ export default function RadarSkills() {
     <section id="competences" className="section radar-skills-section">
       <div className="container">
         <SectionTitle
-          eyebrow={lang === 'fr' ? '03 — Compétences' : '03 — Skills'}
+          eyebrow={lang === 'fr' ? '03 - Compétences' : '03 - Skills'}
           title={lang === 'fr' ? 'Compétences par domaine' : 'Skills by domain'}
         />
 
@@ -346,7 +346,7 @@ export default function RadarSkills() {
 
             <div
               className={`radar-progress-track radar-progress-${activeDomain.accent}`}
-              aria-label={`${lang === 'fr' ? activeDomain.fr : activeDomain.en} — ${activeDomain.score}/100`}
+              aria-label={`${lang === 'fr' ? activeDomain.fr : activeDomain.en} - ${activeDomain.score}/100`}
             >
               <motion.div
                 className="radar-progress-fill"
